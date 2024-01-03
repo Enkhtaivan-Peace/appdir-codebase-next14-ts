@@ -1,8 +1,8 @@
+'use client'
 /**
  * @createdBy Phill Anderson 2022/02/27
  */
 import { useAdminGlobalCtx } from 'a/common/global/useAdminGlobalCtx'
-import { useRouter } from 'next/router'
 import React, { useEffect, useState, RefObject } from 'react'
 import { debounce } from 'a/common/delay/timer'
 import { useSiteGlobalCtx } from '../global/useSiteGlobal'
@@ -53,7 +53,6 @@ function useElementPosition(
     options: { globalName?: string; isAdminSide?: boolean } = {}
 ) {
     const { globalName, isAdminSide } = options
-    const { locale } = useRouter()
     const { setAdminGlobalItems } = useAdminGlobalCtx()
     const { setSiteGlobalItems } = useSiteGlobalCtx()
 
@@ -211,7 +210,7 @@ function useElementPosition(
                 domObject.removeEventListener('scroll', debouncedDataGenerate)
             }
         }
-    }, [locale])
+    }, [])
 
     return {
         handleElPosition,

@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useState, useContext, FC, Suspense } from 'react'
 import { GLOBAL_POPUP_COMPONENTS, GLOBAL_POPUP_TYPE } from './globalPopupRegistration'
 interface ModalProps {

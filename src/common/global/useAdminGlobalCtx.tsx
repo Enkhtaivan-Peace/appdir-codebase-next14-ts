@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useState, useContext, FC } from 'react'
 // import { JsxChildren } from '../types/common'
 
