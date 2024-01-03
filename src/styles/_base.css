@@ -28,7 +28,7 @@
     b,
     label,
     button {
-        @apply text-white;
+        @apply text-foreground;
     }
 
     h1 {

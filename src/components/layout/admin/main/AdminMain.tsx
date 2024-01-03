@@ -13,9 +13,6 @@ function AdminMain(props: IMain): JSX.Element {
     const { children } = props
     const ref = useRef(null)
     useElementPosition(ref, { globalName: 'adminMain', isAdminSide: true })
-    const { adminGlobalItems } = useAdminGlobalCtx()
-    const adminSidebarHeight = adminGlobalItems?.adminSidebar?.offsets?.offsetHeight
-    console.log(adminGlobalItems)
 
     const windowSize = useWindowSize()
     const style:CSSProperties = {

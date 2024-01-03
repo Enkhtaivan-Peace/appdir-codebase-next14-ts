@@ -23,16 +23,23 @@ function GlobalMainPopup({ children, title }: IMainPopup) {
 
     return (
         <Backdrop>
-            <div ref={backRef} className="bg-blue p-10 rounded z-100">
+            <MainPopupWrapper ref={backRef}>
                 <MainPopupHeader>
-                    <h2>{title}</h2>
+                    <h2 className='text-black'>{title}</h2>
                     <CloseBtn onClick={closePopup} />
                 </MainPopupHeader>
                 <MainPopupBody>{children}</MainPopupBody>
-            </div>
+            </MainPopupWrapper>
         </Backdrop>
     )
 }
+
+const MainPopupWrapper = styled.div`
+    background: white;
+    padding: var(--space-10);
+    border: 1px solid gray;
+    border-radius: 5px;
+`
 
 const MainPopupHeader = styled.div`
     display: flex;

@@ -1,12 +1,14 @@
+'use client'
 import React from 'react'
 import GlobalMainPopup from '../../_partials/GlobalMainPopup'
+import { Button } from 'a/components/ui/button'
 // import { POPUP_TYPES } from '../popupRegistration'
 function AlertPopup() {
     // const { hidePopup, showPopup } = usePopupCtx()
 
     return (
         <GlobalMainPopup title="AlertPopup">
-            <button>Ok</button>
+            <Button variant='outline'>Ok</Button>
         </GlobalMainPopup>
     )
 }

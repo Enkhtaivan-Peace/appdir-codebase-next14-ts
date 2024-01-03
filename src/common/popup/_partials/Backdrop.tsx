@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import tw from 'tailwind-styled-components'
+import styled from 'styled-components'
 export interface IBackdrop {
     children: ReactNode
 }
@@ -21,16 +22,16 @@ function Backdrop({ children }: IBackdrop) {
     )
 }
 
-const BackdropOverlay = tw(motion.div)`
-    fixed
-    top-0
-    left-0
-    right-0
-    bottom-0
-    flex
-    items-center
-    justify-center
-    bg-[#000]
-    bg-opacity-50
+const BackdropOverlay = styled(motion.div)`
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(0,0,0,0.5);
+    z-index: 101;
 `
 export default Backdrop
