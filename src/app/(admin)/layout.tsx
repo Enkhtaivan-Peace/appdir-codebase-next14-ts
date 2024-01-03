@@ -27,12 +27,12 @@ export default function AdminLayout({ children }: JsxChildren) {
     );
   }
 
-  const AdminLayoutTw = tw.div`
-  flex 
-  flex-col
-  w-full
-  md:min-h-screen
-  relative
-  bg-white
-  dark:bg-gray-400
+const AdminLayoutTw = tw.div`
+    flex 
+    flex-col
+    w-full
+    md:min-h-screen
+    relative
+    bg-white
+    dark:bg-gray-400
 `

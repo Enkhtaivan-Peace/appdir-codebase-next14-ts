@@ -4,6 +4,7 @@ import 'a/styles/globals.css'
 import SessionProvider from 'a/common/auth/SessionProvider'
 import { getServerSession } from 'next-auth'
 import { ThemeProvider } from 'a/common/theme/themeProvider'
+import { cn } from 'a/common/utils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,8 +18,8 @@ export default async function RootLayout({
 }: JsxChildren) {
   const session = await getServerSession();
   return (
-      <html lang="en">
-        <body className={inter.className}>
+      <html lang="en" suppressHydrationWarning>
+        <body className={cn(' antialiased', inter.className)}>
           <ThemeProvider>
             <SessionProvider session={session}>
                     {children}

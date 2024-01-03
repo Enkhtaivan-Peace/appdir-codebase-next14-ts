@@ -13,7 +13,6 @@ import tw from 'tailwind-styled-components'
 import Logo from 'a/components/ui/button/Logo'
 
 function AdminHeaderUi(): JSX.Element {
-    // const { data: session } = useSession();
     const ref = useRef(null)
     useElementPosition(ref, { globalName: 'adminHeader', isAdminSide: true })
     const { showGlobalPopup } = useGlobalPopupCtx()
@@ -33,15 +32,17 @@ function AdminHeaderUi(): JSX.Element {
 }
 const HeaderSc = tw.header`
     fixed
+    top-0
+    left-0
     flex
     items-center
     justify-between
     w-full
     h-[50px]
-    px-4
+    px-10
     border-b
     border-gray-300
-    z-100
+    z-[100]
 `
 
 export default AdminHeaderUi

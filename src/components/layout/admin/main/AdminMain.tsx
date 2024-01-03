@@ -23,7 +23,9 @@ function AdminMain(props: IMain): JSX.Element {
     }
     return (
         <MainTw ref={ref} style={style}>
-            {children}
+            <div className='p-20'>
+                {children}
+            </div>
         </MainTw>
     )
 }
@@ -31,7 +33,6 @@ function AdminMain(props: IMain): JSX.Element {
 const MainTw = tw.main`
   w-full
   min-h-[100vh]
-  p-10
 `
 
 export default AdminMain
