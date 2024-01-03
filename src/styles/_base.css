@@ -52,7 +52,7 @@
     label,
     span,
     a {
-        @apply text-16 text-gray-600 font-robotoRegular leading-24;
+        @apply text-16 text-gray-600 dark:text-white font-robotoRegular leading-24;
     }
 
     header,

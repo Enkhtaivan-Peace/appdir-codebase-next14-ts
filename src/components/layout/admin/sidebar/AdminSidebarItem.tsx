@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import React from 'react'
 import { usePathname } from 'next/navigation'
-// import { TMENU } from 'a/common/types/common'
 import tw from 'tailwind-styled-components'
 interface ISidebarItem extends TMENU {}
 

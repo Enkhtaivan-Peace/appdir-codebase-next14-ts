@@ -4,7 +4,6 @@ import SidebarItem from './AdminSidebarItem'
 import tw from 'tailwind-styled-components'
 import { motion } from 'framer-motion'
 import useElementPosition from 'a/common/window/useElementPosition'
-// import { useAdminGlobalCtx } from 'a/common/global/useAdminGlobalCtx'
 import { adminMenu } from 'a/common/constants'
 import { useWindowSize } from 'usehooks-ts'
 export interface IMenu {
@@ -33,18 +32,7 @@ const sidebarVariants = {
 function AdminSidebar(): JSX.Element {
     const ref = useRef(null)
     useElementPosition(ref, { globalName: 'adminSidebar', isAdminSide: true })
-    // const { adminGlobalItems } = useAdminGlobalCtx()
-    // const [isShowScroll, setIsShowScroll] = useState<boolean>(false)
-    // const adminMainHeight = adminGlobalItems.adminMain?.offsets?.offsetHeight
-    // const sidebarNavHeight = refObjectData?.offsets?.offsetHeight
     const windowSize = useWindowSize()
-
-    // useEffect(() => {
-    //     if (sidebarNavHeight && adminMainHeight) {
-    //         const isshowScroll: boolean = sidebarNavHeight > adminMainHeight
-    //         setIsShowScroll(isshowScroll)
-    //     }
-    // }, [refObjectData])
 
     return (
         <SidebarTw
@@ -67,14 +55,15 @@ interface ISidebarTwProps extends React.HTMLProps<HTMLElement> {
     adminmainheight?: number
 }
 const SidebarTw = tw(motion.aside)<ISidebarTwProps>`
- p-0
- my-10
+ fixed
+ left-0
  w-[200px]
  h-screen
  lg:p-10
  border-r
- bg-white
  z-100
+ border-r
+ border-gray-300
 `
 
 const SidebarNavTw = tw.nav`

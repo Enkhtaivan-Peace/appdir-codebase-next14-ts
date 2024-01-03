@@ -11,6 +11,7 @@ import { useGlobalPopupCtx } from 'a/common/popup/globalPopup/useGlobalPopupCtx'
 import { GLOBAL_POPUP_TYPES } from 'a/common/popup/globalPopup/globalPopupRegistration'
 import tw from 'tailwind-styled-components'
 import Logo from 'a/components/ui/button/Logo'
+
 function AdminHeaderUi(): JSX.Element {
     // const { data: session } = useSession();
     const ref = useRef(null)
@@ -31,6 +32,7 @@ function AdminHeaderUi(): JSX.Element {
     )
 }
 const HeaderSc = tw.header`
+    fixed
     flex
     items-center
     justify-between
@@ -39,6 +41,7 @@ const HeaderSc = tw.header`
     px-4
     border-b
     border-gray-300
+    z-100
 `
 
 export default AdminHeaderUi
