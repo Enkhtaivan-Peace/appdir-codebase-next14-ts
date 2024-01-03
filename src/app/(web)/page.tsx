@@ -1,6 +1,8 @@
+import { NextPage } from "next"
 import AnimeLoadMore from "a/features/anime/AnimeMore"
 import { fetchAnimes } from "a/features/anime/actions"
-export default async function Home() {
+
+const WebHomePage:NextPage = async () => {
   const data = await fetchAnimes(1)
 
   return (
@@ -13,3 +15,4 @@ export default async function Home() {
     </main>
   )
 }
+export default WebHomePage
