@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGlobalPopupCtx } from '../useGlobalPopupCtx'
-import Flex from 'a/components/ui/containers/flex/Flex'
+import { Flex } from 'a/components/ui/containers/flex/Flex'
 import GlobalMainPopup from '../../_partials/GlobalMainPopup'
 
 function DecisionPopup() {
@@ -13,7 +13,7 @@ function DecisionPopup() {
     }
     return (
         <GlobalMainPopup title="DecisionPopup">
-            <Flex gap={10} className="justify-evenly">
+            <Flex className="justify-evenly gap-10">
                 <p>{store.popupProps[0].popupProps.message}</p>
                 <button onClick={handleOk}>Ok</button>
                 <button onClick={hideAllGlobalPopups}>Cancel</button>
