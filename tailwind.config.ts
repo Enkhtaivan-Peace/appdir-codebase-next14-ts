@@ -24,7 +24,7 @@ const config: Config = {
     },
     container: {
         center: true,
-        padding: '15px',
+        padding: '2rem',
         screens: {
             sm: '640px', // Set max-width for small screens (e.g., mobile)
             md: '768px', // Set max-width for medium screens (e.g., tablet)
@@ -117,100 +117,64 @@ const config: Config = {
     },
     extend: {
         colors: {
-            transparent: 'rgba(255, 255, 255, 0)',
-            white: '#fff',
-            blue: '#0000ee',
-            blueSoft: '#6366f1',
-            purple: '#7e5bef',
-            pink: '#ff49db',
-            orange: '#ff7849',
-            green: '#13ce66',
-            yellow: '#ffc82c',
-            black: '#000',
-            blackSoft: '#111927',
-            gray: {
-                100: '#f7fafc',
-                300: '#f5f5f5 ',
-                600: '#444444',
-                900: '#1a202c',
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            primary: {
+              DEFAULT: "hsl(var(--primary))",
+              foreground: "hsl(var(--primary-foreground))",
             },
-        },
-        borderRadius: {
-            none: '0',
-            sm: '0.125rem',
-            DEFAULT: '0.25rem',
-            md: '0.375rem',
-            lg: '0.5rem',
-            full: '9999px',
-        },
-        borderWidth: {
-            DEFAULT: '1px',
-            '0': '0',
-            '2': '2px',
-            '3': '3px',
-            '4': '4px',
-            '6': '6px',
-            '8': '8px',
-        },
-        gridTemplateColumns: {
-            '16': 'repeat(16, minmax(0, 1fr))',
-            footer: '200px minmax(900px, 1fr) 100px',
-        },
-
-        backgroundImage: {
-            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-            'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        },
-        blur: {
-            xs: '2px',
-        },
-        brightness: {
-            25: '.25',
-            175: '1.75',
-        },
-        contrast: {
-            25: '.25',
-        },
-        dropShadow: {
-            '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
-            '4xl': ['0 35px 35px rgba(0, 0, 0, 0.25)', '0 45px 65px rgba(0, 0, 0, 0.15)'],
-        },
-        grayscale: {
-            50: '50%',
-        },
-        hueRotate: {
-            '-270': '-270deg',
-            270: '270deg',
-        },
-        zIndex: {
-            '100': '100',
-        },
-        keyframes: {
-            slideDown: {
-                from: { height: '0' },
-                to: { height: '70px' },
+            secondary: {
+              DEFAULT: "hsl(var(--secondary))",
+              foreground: "hsl(var(--secondary-foreground))",
             },
-            slideUp: {
-                from: { height: '70px' },
-                to: { height: '0' },
+            destructive: {
+              DEFAULT: "hsl(var(--destructive))",
+              foreground: "hsl(var(--destructive-foreground))",
             },
-            overlayShow: {
-                from: { opacity: '0' },
-                to: { opacity: '1' },
+            muted: {
+              DEFAULT: "hsl(var(--muted))",
+              foreground: "hsl(var(--muted-foreground))",
             },
-            contentShow: {
-                from: { opacity: '0', transform: 'translate(-50%, -48%) scale(0.96)' },
-                to: { opacity: '1', transform: 'translate(-50%, -50%) scale(1)' },
+            accent: {
+              DEFAULT: "hsl(var(--accent))",
+              foreground: "hsl(var(--accent-foreground))",
             },
-        },
-        animation: {
-            slideDown: 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)',
-            slideUp: 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)',
-            overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-            contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        },
+            popover: {
+              DEFAULT: "hsl(var(--popover))",
+              foreground: "hsl(var(--popover-foreground))",
+            },
+            card: {
+              DEFAULT: "hsl(var(--card))",
+              foreground: "hsl(var(--card-foreground))",
+            },
+          },
+          borderRadius: {
+            lg: "var(--radius)",
+            md: "calc(var(--radius) - 2px)",
+            sm: "calc(var(--radius) - 4px)",
+          },
+          keyframes: {
+            "accordion-down": {
+              from: { height: "0" },
+              to: { height: "var(--radix-accordion-content-height)" },
+            },
+            "accordion-up": {
+              from: { height: "var(--radix-accordion-content-height)" },
+              to: { height: "0" },
+            },
+          },
+          animation: {
+            "accordion-down": "accordion-down 0.2s ease-out",
+            "accordion-up": "accordion-up 0.2s ease-out",
+          },
     },
 },
-plugins: [require('tailwind-scrollbar-hide')],
+plugins: [
+    require('tailwind-scrollbar-hide'),
+    require("tailwindcss-animate")
+],
 }
 export default config

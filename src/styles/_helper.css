@@ -17,7 +17,7 @@
     }
 }
 .active {
-    @apply bg-blue dark:bg-purple;
+    @apply bg-blue-400 dark:bg-blue-700;
 }
 .red-gradient {
   background: linear-gradient(92deg, #ff5956 2.87%, #ee1e38 96.18%);

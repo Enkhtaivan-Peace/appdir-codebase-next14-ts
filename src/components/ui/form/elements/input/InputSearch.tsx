@@ -5,7 +5,7 @@ import { BsSearch } from 'react-icons/bs'
 function InputSearch(props: TInput) {
     const { onChange, placeholder, name, isValid, value } = props
     return (
-        <div className="flex items-center gap-5 border border-blackSoft border-opacity-10 rounded-md pl-10 py-4">
+        <div className="flex items-center gap-5 border border-slate-300 border-opacity-10 rounded-md pl-10 py-4">
             <BsSearch />
             <input
                 type="text"
