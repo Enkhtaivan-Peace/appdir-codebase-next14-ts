@@ -42,6 +42,7 @@ const HeaderSc = tw.header`
     px-10
     border-b
     border-gray-300
+    bg-white
     z-[100]
 `
 

@@ -1,4 +1,4 @@
 button,
 [type='submit'] {
-    @apply text-16 bg-emerald-500 dark:bg-emerald-200;
+    @apply text-16;
 }

@@ -6,6 +6,8 @@ import Backdrop from './Backdrop'
 import CloseBtn from 'a/components/ui/button/CloseBtn'
 import { usePopupCtx } from '../usePopupCtx'
 import styled from 'styled-components'
+import { MainPopupBody, MainPopupHeader, MainPopupWrapper } from './GlobalMainPopup'
+import useKeyPress from 'a/common/keyboard/key'
 interface IMainPopup {
     children: ReactNode
     width?: number
@@ -16,6 +18,11 @@ interface IMainPopup {
 function MainPopup({ children, title }: IMainPopup) {
     const backRef = useRef(null)
     const { hidePopup } = usePopupCtx()
+    
+    useKeyPress({
+        callback: () => closePopup(),
+        keyName: 'Escape'
+    })
 
     const closePopup = useCallback(() => {
         hidePopup()
@@ -23,26 +30,15 @@ function MainPopup({ children, title }: IMainPopup) {
 
     return (
         <Backdrop>
-            <div ref={backRef} className="bg-blue p-10 rounded z-100">
+            <MainPopupWrapper ref={backRef}>
                 <MainPopupHeader>
                     <h2>{title}</h2>
                     <CloseBtn onClick={closePopup} />
                 </MainPopupHeader>
                 <MainPopupBody>{children}</MainPopupBody>
-            </div>
+            </MainPopupWrapper>
         </Backdrop>
     )
 }
-
-const MainPopupHeader = styled.div`
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: var(--space-10);
-`
-
-const MainPopupBody = styled.div`
-    padding-block: var(--space-10);
-`
 
 export default MainPopup
