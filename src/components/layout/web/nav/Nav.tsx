@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { signOut, useSession } from "next-auth/react";
 import './Nav.css';
+
 function Nav() {
   const { data: session }: any = useSession();
   return (
@@ -27,6 +28,7 @@ function Nav() {
             <Link href='/dashboard'><li>Dashboard</li></Link>
           </>
         }
+          <li><Link href='/todo'>Todo</Link></li>
       </ul>  
     </nav>
   )

@@ -4,9 +4,9 @@ nav {
         @apply flex gap-10 font-railwayBold;
     }
     ul li {
-       @apply text-white;
+       @apply px-10;
     }
 }
 .nav {
-    @apply flex items-center justify-between p-10 lg:px-8 h-60 border border-t-0 border-r-0 border-b-gray-600;
+    @apply flex items-center justify-between p-10 lg:px-8 h-60 border border-t-0;
 }

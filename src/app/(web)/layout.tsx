@@ -13,7 +13,6 @@ export default function WebLayout({ children }:JsxChildren) {
                   <Header />
             </ClientHeader>
             <main className="my-0 py-16">
-                <Hero />
                 {children}
             </main>
             <Footer />
