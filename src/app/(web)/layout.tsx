@@ -1,6 +1,5 @@
 import { SiteGlobalProvider } from "a/common/global/useSiteGlobal";
 import { GlobalPopupProvider } from "a/common/popup/globalPopup/useGlobalPopupCtx";
-import Hero from "a/components/layout/web/Hero";
 import Footer from "a/components/layout/web/footer/Footer";
 import ClientHeader from "a/components/layout/web/header/ClientHeader";
 import Header from "a/components/layout/web/header/Header";
