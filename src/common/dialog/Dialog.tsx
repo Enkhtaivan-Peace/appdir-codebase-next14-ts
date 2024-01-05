@@ -2,9 +2,7 @@
 import { Button } from "a/components/ui/button"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useRef, useEffect } from 'react'
-import tw from 'tailwind-styled-components'
-import useQueryParams from "../url/useQueryParams"
-
+import styled from "styled-components"
 type TDialog = {
     title: string,
     onClose: () => void,
@@ -19,7 +17,6 @@ function Dialog({ title, onClose, onOk, children}: TDialog): JSX.Element | null 
     const dialogRef = useRef<null | HTMLDialogElement>(null)
     const showDialog = searchParams.get('showDialog')
 
-    const { createQueryString } = useQueryParams()
 
     useEffect(() => {
         if(showDialog ==='y') {
@@ -44,7 +41,7 @@ function Dialog({ title, onClose, onOk, children}: TDialog): JSX.Element | null 
         <>
             {
                 showDialog === 'y' ? (
-                    <DialogWrapper ref={dialogRef}>
+                    <DialogWrapper ref={dialogRef} className=" bg-slate-300">
                         <DialogInner>
                             <DialogHeader className=" bg-slate-400">
                                 <h1>{ title }</h1>
@@ -66,38 +63,33 @@ function Dialog({ title, onClose, onOk, children}: TDialog): JSX.Element | null 
     );
 }
 
-const DialogWrapper = tw.dialog`
-    fixed
-    top-50
-    left-50f
-    -translate-x-50
-    -translate-y-50
-    z-[100]
-    rounded-xl
-    backdrop:bg-gray-800/50
+const DialogWrapper = styled.dialog`
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index:100;
+    backdrop-filter: blur(50%);
+    background-color: rgba(72, 72, 72, 0.5);
+`
+const DialogInner = styled.div`
+    max-width: 100%;
+    background: rgba(0, 0, 0, 0.4)
+    display:flex;
+    flex-direction:column;
 `
 
-const DialogInner = tw.div`
-    w-[500px]
-    max-w-full
-    bg-gray-200
-    flex
-    flex-col
+const DialogHeader = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: yellow; 
 `
 
-const DialogHeader = tw.div`
-    flex
-    flex-row
-    justify-between
-    mb-4
-    pt-2 
-    px-5
-    bg-yellow-400 
-`
-
-const DialogContent = tw.div`
-    px-5
-    pb-6
+const DialogContent = styled.div`
+    padding: 10px 15px;
 `
 
 export default Dialog

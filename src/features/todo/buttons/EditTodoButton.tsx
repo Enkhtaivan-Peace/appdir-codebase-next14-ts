@@ -15,6 +15,7 @@ function EditTodoButton(props:IEditTodoBtn) {
 
      // server actions - аар edit хийх үед амжилттай edit function ажилласны дараа
      // popup - ийг хаах боломжгүй. учир нь popup нь client талд ажиллаж байгаа.
+     // тиймээс popup - ийн оронд dialog ашиглавал болох юм шиг бна.
     async function handleClick() {
         showPopup(POPUP_TYPES.TODO_EDIT)
         setPopupState((prev:any) => ({
