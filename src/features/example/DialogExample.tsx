@@ -2,7 +2,7 @@ import React from 'react'
 import Dialog from 'a/common/dialog/Dialog'
 import Link from 'next/link'
 
-function ClientList() {
+function DialogExample() {
 
     async function handleClose() {
         'use server'
@@ -27,4 +27,4 @@ function ClientList() {
   )
 }
 
-export default ClientList
+export default DialogExample

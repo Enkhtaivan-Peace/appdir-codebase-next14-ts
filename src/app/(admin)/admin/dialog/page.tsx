@@ -1,4 +1,4 @@
-import ClientList from 'a/features/example/ClientList'
+import ClientList from 'a/features/example/DialogExample'
 import { NextPage } from 'next'
 import React from 'react'
 
