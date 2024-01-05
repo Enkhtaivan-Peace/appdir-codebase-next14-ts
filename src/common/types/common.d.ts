@@ -13,6 +13,13 @@ declare type TButton = {
     isActive?: boolean
 }
 
+declare type TRes<T> = {
+    success?: boolean;
+    message?: string;
+    statusCode?:number;
+    data: T
+}
+
 declare type TFormElement = {
     name: string
     placeholder?: string

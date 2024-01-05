@@ -6,6 +6,7 @@ import { getServerSession } from 'next-auth'
 import { ThemeProvider } from 'a/common/theme/themeProvider'
 import { cn } from 'a/common/utils'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-}: JsxChildren) {
+}: React.PropsWithChildren) {
   const session = await getServerSession();
   return (
       <html lang="en" suppressHydrationWarning>

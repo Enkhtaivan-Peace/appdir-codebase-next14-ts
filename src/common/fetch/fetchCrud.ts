@@ -1,11 +1,3 @@
-// const BASE_URL = 'https://jsonplaceholder.typicode.com'
-
-import { TRes } from "a/features/todo/_interfaces"
-
-// export type ApiResponse<T> = {
-//     //   data?: T;
-// }
-
 type ApiError = {
     message: string
 }
@@ -36,8 +28,8 @@ type ApiError = {
         return await this.handleResponse<T>(response)
     }
 
-    public async createItem<T>(data: T, token?: string): Promise<TRes<T>> {
-        const response = await fetch(this.BASE_URL, {
+    public async createItem<T>(url:string, data: T, token?: string): Promise<TRes<T>> {
+        const response = await fetch(this.BASE_URL + url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -48,8 +40,8 @@ type ApiError = {
         return await this.handleResponse<T>(response)
     }
 
-    public async updateItem<T>(id: number, data: T, token?: string): Promise<TRes<T>> {
-        const response = await fetch(`${this.BASE_URL}/${id}`, {
+    public async updateItem<T>(url:string, id: number, data: T, token?: string): Promise<TRes<T>> {
+        const response = await fetch(`${this.BASE_URL}${url}/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -60,15 +52,16 @@ type ApiError = {
         return await this.handleResponse<T>(response)
     }
 
-    public async deleteItem<T>(id: number, token?: string): Promise<void> {
-        const response = await fetch(`${this.BASE_URL}/${id}`, {
+    public async deleteItem<T>(url:string,  id: number, token?: string): Promise<TRes<T>> {
+        console.log(this.BASE_URL)
+        const response = await fetch(`${this.BASE_URL}${url}/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: token ? `Bearer ${token}` : '',
             },
         })
-        await this.handleResponse<T>(response)
+        return await this.handleResponse<T>(response)
     }
 }
 export default Fetch

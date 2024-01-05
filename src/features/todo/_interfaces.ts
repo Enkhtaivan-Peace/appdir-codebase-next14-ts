@@ -1,13 +1,14 @@
-export type TRes<T> = {
-    success?: boolean;
-    message?: string;
-    data: T
-}
+
 
 export interface ITodo {
-    id: number;
+    id?: number;
     name: string;
     photo: string;
     isCompleted: boolean;
-    createdAt: string;
+    description?:string;
+    createdAt?: string;
+    updatedAt?:string;
 }
+
+export type TCreateTodo = Exclude<ITodo, 'id' | 'createdAt'>
+export type TDeleteTodo = Partial<ITodo>
