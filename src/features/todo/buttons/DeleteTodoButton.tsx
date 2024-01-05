@@ -2,7 +2,7 @@
 import { Button } from 'a/components/ui/button'
 import React, { useTransition } from 'react'
 import { MdDelete } from 'react-icons/md'
-import { TDeleteTodo } from './_interfaces'
+import { TDeleteTodo } from '../_interfaces'
 
 interface IDeleteTodoBtn {
     deleteTodo: () => Promise<void>

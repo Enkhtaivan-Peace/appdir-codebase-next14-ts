@@ -1,5 +1,5 @@
 import FetchApi from "a/common/fetch/fetchCrud"
-import { ITodo, TCreateTodo, TDeleteTodo } from "./_interfaces"
+import { ITodo, TCreateTodo, TDeleteTodo, TEditTodo } from "./_interfaces"
 
 const fetchCrud = new FetchApi()
 const options = {
@@ -18,8 +18,13 @@ export const TodoService =  {
         return res;
     },
 
+    editTodo: async (id:number, data:TEditTodo) => {
+        const res = await fetchCrud.updateItem<TEditTodo>('/todos/' + id, data )
+        return res;
+    },
+
     deleteTodo: async (id:number) => { 
-        console.log('id', id)
+        console.log('todoId:', id)
         const res = await fetchCrud.deleteItem<TDeleteTodo>('/todos', id)
         return res
     }

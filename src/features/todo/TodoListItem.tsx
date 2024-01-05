@@ -1,22 +1,35 @@
-'use client'
 import React from 'react'
-import { ITodo, TDeleteTodo } from './_interfaces'
+import { ITodo } from './_interfaces'
 import tw from 'tailwind-styled-components'
 import Image from 'next/image'
 import { Flex } from 'a/components/ui/containers/flex/Flex'
 import { Button } from 'a/components/ui/button'
 import { MdOutlineModeEditOutline, MdDelete  } from "react-icons/md";
-import DeleteTodoButton from './DeleteTodoButton'
-import { deleteTodo } from './_todo-actions'
+import DeleteTodoButton from './buttons/DeleteTodoButton'
+import { deleteTodo, editTodo } from './_todo-actions'
+import { revalidatePath } from 'next/cache'
+import EditTodoButton from './buttons/EditTodoButton'
 
 export interface ITodoListItem extends ITodo {
-    deleteTodo?: (id:number) => Promise<void>
+    
 }
 
 function TodoListItem(props:ITodoListItem) {
     const { id, name, photo, isCompleted, createdAt } = props
     const thePhoto = photo === 'no-photo.jpg' ? `/${photo}` : photo
     
+    async function handleDeleteTodo() {
+        'use server'
+        deleteTodo(id!)
+        revalidatePath('/todo')
+    }
+
+    async function handleEditTodo() {
+        'use server'
+        console.log('handleEditTodo')
+        // const res = await editTodo(id!)
+    }
+
   return (
     <Item className='todo-item'>
         <Flex className='justify-between items-center'>
@@ -32,10 +45,8 @@ function TodoListItem(props:ITodoListItem) {
                 </div>
             </Flex>
             <Flex>
-                <Button variant='ghost'>
-                    <MdOutlineModeEditOutline />
-                </Button>
-                <DeleteTodoButton  deleteTodo={() => deleteTodo(id!)} />
+                <EditTodoButton handleEditTodo = { handleEditTodo } />
+                <DeleteTodoButton  deleteTodo={handleDeleteTodo} />
             </Flex>
         </Flex>
     </Item>

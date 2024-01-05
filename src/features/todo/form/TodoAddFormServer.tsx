@@ -1,7 +1,7 @@
 import { Button } from 'a/components/ui/button'
 import { Flex } from 'a/components/ui/containers/flex/Flex'
 import React from 'react'
-import { addTodo } from './_todo-actions'
+import { addTodo } from '../_todo-actions'
 
 async function TodoAddForm() {
    
@@ -28,7 +28,6 @@ async function TodoAddForm() {
                         name='description'
                         placeholder='тайлбар'
                     />
-
                     <Button variant='outline' size='sm'>ok</Button>
                 </Flex>
             </Flex>    

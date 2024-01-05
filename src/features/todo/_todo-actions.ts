@@ -7,21 +7,38 @@ export async function addTodo(formData: FormData) {
     const name = formData.get('name') as string;
     const photo = formData.get('photo') as string;
     const description = formData.get('description') as string;
-    console.log(name, description, photo)
+
+    console.log('photo', photo)
     const data:TCreateTodo = {
         name,
-        photo: photo ?? "https://loremflickr.com/640/480/technics",
+        photo: ( photo || photo !== '' ) ? photo : "https://loremflickr.com/640/480/technics",
         description: description ?? 'no-description',
         isCompleted: false
     }
     const todoListRes:TRes<ITodo> = await TodoService.addTodo(data)
     revalidatePath('/todo')
+    return todoListRes
+}
+
+export async function editTodo(id:number, formData: FormData) {
+    const name = formData.get('name') as string;
+    const photo = formData.get('photo') as string;
+    const description = formData.get('description') as string;
+    
+    const data:TCreateTodo = {
+        name,
+        photo: ( photo || photo !== '' ) ? photo : "https://loremflickr.com/640/480/technics",
+        description: description ?? 'no-description',
+        isCompleted: false
+    }
+    const todoListRes:TRes<ITodo> = await TodoService.addTodo(data)
+    revalidatePath('/todo')
+    return todoListRes
 }
 
 export async function deleteTodo(id:number) {
     const res = await TodoService.deleteTodo(id)
     console.log(res)
-    revalidatePath('/todo')
 }
 
 export async function getTodoList() {

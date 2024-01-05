@@ -40,8 +40,8 @@ type ApiError = {
         return await this.handleResponse<T>(response)
     }
 
-    public async updateItem<T>(url:string, id: number, data: T, token?: string): Promise<TRes<T>> {
-        const response = await fetch(`${this.BASE_URL}${url}/${id}`, {
+    public async updateItem<T>(url:string, data: T, token?: string): Promise<TRes<T>> {
+        const response = await fetch(`${this.BASE_URL}${url}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +53,6 @@ type ApiError = {
     }
 
     public async deleteItem<T>(url:string,  id: number, token?: string): Promise<TRes<T>> {
-        console.log(this.BASE_URL)
         const response = await fetch(`${this.BASE_URL}${url}/${id}`, {
             method: 'DELETE',
             headers: {

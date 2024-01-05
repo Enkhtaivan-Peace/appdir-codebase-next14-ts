@@ -11,4 +11,5 @@ export interface ITodo {
 }
 
 export type TCreateTodo = Exclude<ITodo, 'id' | 'createdAt'>
+export type TEditTodo = Partial<ITodo>
 export type TDeleteTodo = Partial<ITodo>
