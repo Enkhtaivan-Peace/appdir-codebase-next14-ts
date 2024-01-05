@@ -12,8 +12,8 @@ interface IPopupCtx {
     hidePopup: () => void
     hideAllPopups: () => void
     popupHistory: string[]
-    popupState?: any
-    setPopupState?: (state: any) => void
+    popupState: any
+    setPopupState: (state: any) => void
 }
 
 const PopupCtx = createContext<IPopupCtx>({} as IPopupCtx)

@@ -24,12 +24,6 @@ function TodoListItem(props:ITodoListItem) {
         revalidatePath('/todo')
     }
 
-    async function handleEditTodo() {
-        'use server'
-        console.log('handleEditTodo')
-        // const res = await editTodo(id!)
-    }
-
   return (
     <Item className='todo-item'>
         <Flex className='justify-between items-center'>
@@ -45,7 +39,7 @@ function TodoListItem(props:ITodoListItem) {
                 </div>
             </Flex>
             <Flex>
-                <EditTodoButton handleEditTodo = { handleEditTodo } />
+                <EditTodoButton todo={props}  />
                 <DeleteTodoButton  deleteTodo={handleDeleteTodo} />
             </Flex>
         </Flex>

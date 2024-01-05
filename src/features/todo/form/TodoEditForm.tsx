@@ -2,36 +2,41 @@ import { Flex } from 'a/components/ui/containers/flex/Flex'
 import React from 'react'
 import { editTodo } from '../_todo-actions'
 import { Button } from 'a/components/ui/button'
+import { IEditTodoBtn } from '../buttons/EditTodoButton'
 
-function TodoEditForm() {
+function TodoEditForm(props:Pick<IEditTodoBtn, 'todo'>) {
+    const { todo } = props
+
   return (
-    <Flex className='py-30 justify-center'>
-    <form>
-        <Flex className=' items-center'>
-            <Flex className='flex-col gap-10'>
-                <input 
-                    id="todoName" 
-                    name="name" 
-                    type="text"
-                    placeholder="гарчиг"
-                    required
-                />
-                <input 
-                    id="todoName" 
-                    name="photo" 
-                    type="text"
-                    placeholder="photo url"
-                />
-                <textarea
-                    id="description"
-                    name='description'
-                    placeholder='тайлбар'
-                />
-                <Button variant='outline' size='sm'>ok</Button>
-            </Flex>
-        </Flex>    
-    </form>
-</Flex>
+        <form action={editTodo}>
+            <Flex className=' items-center'>
+                <Flex className='flex-col gap-10'>
+                    <input hidden name='id' value={todo.id} readOnly />
+                    <input 
+                        id="todoName" 
+                        name="name" 
+                        type="text"
+                        placeholder="гарчиг"
+                        required
+                        defaultValue={todo.name}
+                    />
+                    <input 
+                        id="todoName" 
+                        name="photo" 
+                        type="text"
+                        placeholder="photo url"
+                        defaultValue={todo.photo}
+                    />
+                    <textarea
+                        id="description"
+                        name='description'
+                        placeholder='тайлбар'
+                        defaultValue={todo.description}
+                    />
+                    <Button variant='outline' size='sm'>ok</Button>
+                </Flex>
+            </Flex>    
+        </form>
   )
 }
 

@@ -13,6 +13,11 @@ export const TodoService =  {
         return res
     },
 
+    fetchTodoById: async (id:number) => {
+        const res = await fetchCrud.fetchItems<ITodo>('/todos/' + id)
+        return res
+    },
+
     addTodo: async (data:TCreateTodo) => {
         const res = await fetchCrud.createItem<TCreateTodo>('/todos', data )
         return res;

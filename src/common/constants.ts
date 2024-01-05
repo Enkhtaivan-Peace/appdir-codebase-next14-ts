@@ -24,6 +24,10 @@ export const adminMenu: TAdminMenu = {
         text: 'Popup',
         href: '/admin/popup',
     },
+    ADMIN_DIALOG: {
+        text: 'Dialog',
+        href: '/admin/dialog',
+    },
     ADMIN_DRAWER: {
         text: 'Drawer',
         href: '/admin/drawer',
