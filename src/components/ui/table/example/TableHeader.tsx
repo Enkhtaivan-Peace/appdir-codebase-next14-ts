@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import InputSearch from '../../form/elements/input/InputSearch'
+import InputSearch from '../../form/elements/input/search/InputSearch'
 
 function TableHeader() {
     const [value, setValue] = useState<string>('')

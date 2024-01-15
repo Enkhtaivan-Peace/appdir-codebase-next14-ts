@@ -72,6 +72,10 @@ export const adminMenu: TAdminMenu = {
         text: 'swiper',
         href: '/admin/sliders',
     },
+    ADMIN_SEARCH: {
+        text: 'Search',
+        href: '/admin/search',
+    },
     ADMIN_TAB: {
         text: 'Tabs',
         href: '/admin/tab',

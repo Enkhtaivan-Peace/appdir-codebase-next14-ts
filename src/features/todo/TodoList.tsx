@@ -4,7 +4,10 @@ import TodoListItem from './TodoListItem'
 import './_todo.css'
 import { getTodoList } from './_todo-actions'
 async function TodoList() {
-   const  todoListRes = await getTodoList()
+   const  todoListRes = await getTodoList({
+    search:'',
+    page: 1,
+   })
   return (
     <div>
         {

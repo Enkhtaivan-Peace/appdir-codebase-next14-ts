@@ -1,7 +1,7 @@
 'use server'
 import { revalidatePath } from "next/cache";
 import { TodoService } from "./TodoService";
-import { ITodo, TCreateTodo } from "./_interfaces";
+import { ITodo, TCreateTodo, TTodoList } from "./_interfaces";
 
 export async function addTodo(formData: FormData) {
     const name = formData.get('name') as string;
@@ -43,8 +43,10 @@ export async function deleteTodo(id:number) {
     console.log(res)
 }
 
-export async function getTodoList() {
-    const todoListRes:TRes<ITodo[]> = await TodoService.fetchTodos()
+
+
+export async function getTodoList(payload: TTodoList) {
+    const todoListRes:TRes<ITodo[]> = await TodoService.fetchTodos(payload)
     return todoListRes
 }
 

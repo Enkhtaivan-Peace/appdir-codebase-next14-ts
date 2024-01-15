@@ -1,5 +1,6 @@
 import FetchApi from "a/common/fetch/fetchCrud"
-import { ITodo, TCreateTodo, TDeleteTodo, TEditTodo } from "./_interfaces"
+import { ITodo, TCreateTodo, TDeleteTodo, TEditTodo, TTodoList } from "./_interfaces"
+import { generateQuery } from "a/common/fetch/queryGenerator"
 
 const fetchCrud = new FetchApi()
 const options = {
@@ -8,7 +9,12 @@ const options = {
 
 export const TodoService =  {
 
-    fetchTodos: async () => {
+    fetchTodos: async (payload:TTodoList) => {
+        const thePayload = {
+            ...payload,
+            fieldName: 'todos'
+        }
+        generateQuery(thePayload)
         const res = await fetchCrud.fetchItems<ITodo[]>('/todos?sort=-createdAt')
         return res
     },

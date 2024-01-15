@@ -21,6 +21,7 @@ declare type TRes<T> = {
 }
 
 declare type TFormElement = {
+    id?: string
     name: string
     placeholder?: string
     required?: boolean
@@ -58,4 +59,10 @@ declare interface Window {
 declare type TScroll = {
     scrollWidth: number
     scrollHeight: number
+}
+
+declare type TSearchParams = {
+    search?: string | null
+    page?:string | null
+    limit?:string | null
 }

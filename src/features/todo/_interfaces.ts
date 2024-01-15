@@ -1,5 +1,3 @@
-
-
 export interface ITodo {
     id?: number;
     name: string;
@@ -13,3 +11,8 @@ export interface ITodo {
 export type TCreateTodo = Exclude<ITodo, 'id' | 'createdAt'>
 export type TEditTodo = Partial<ITodo>
 export type TDeleteTodo = Partial<ITodo>
+
+export type TTodoList = Pick<TSearchParams, 'search'> & {
+    page?: number
+    limit?:number
+}
