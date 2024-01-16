@@ -11,7 +11,7 @@ async function TodoList() {
   return (
     <div>
         {
-            todoListRes.data.map((todo:ITodo, idx:number) => (
+            todoListRes?.data?.map((todo:ITodo, idx:number) => (
                 <TodoListItem key={'todo-' + idx} {...todo} />
             ))
         }

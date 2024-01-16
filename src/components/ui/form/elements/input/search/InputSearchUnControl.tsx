@@ -23,7 +23,7 @@ function InputSearchUnControl(props: Partial<TInput>) {
       }, 300)
 
     return (
-        <div className="flex items-center gap-5 border border-rose-500 border-opacity-20 rounded-md pl-10 py-4">
+        <div className="flex items-center gap-5 border border-emerald-500 border-opacity-20 rounded-md pl-10 py-4">
             <label htmlFor={id}>
                 <BsSearch />
             </label>

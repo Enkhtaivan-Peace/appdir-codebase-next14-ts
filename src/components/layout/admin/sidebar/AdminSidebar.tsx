@@ -59,9 +59,9 @@ const SidebarTw = tw(motion.aside)<ISidebarTwProps>`
  left-0
  w-[200px]
  h-screen
- lg:p-10
  border-r
  z-100
+ bg-white
  border-r
  border-gray-300
 `
@@ -70,9 +70,9 @@ const SidebarNavTw = tw.nav`
   flex
   flex-col
   gap-1
-  p-2
+  p-20
   pb-20
-  max-h-[80vh]
+  h-full
   overflow-x-hidden
 `
 

@@ -2,6 +2,9 @@
 import { revalidatePath } from "next/cache";
 import { TodoService } from "./TodoService";
 import { ITodo, TCreateTodo, TTodoList } from "./_interfaces";
+import { TError } from "a/common/fetch/fetchCrud";
+
+
 
 export async function addTodo(formData: FormData) {
     const name = formData.get('name') as string;
@@ -15,7 +18,7 @@ export async function addTodo(formData: FormData) {
         description: description ?? 'no-description',
         isCompleted: false
     }
-    const todoListRes:TRes<ITodo> = await TodoService.addTodo(data)
+    const todoListRes:TRes<Partial<ITodo>> | TError<ITodo> = await TodoService.addTodo(data)
     revalidatePath('/todo')
     return todoListRes
 }
@@ -33,7 +36,7 @@ export async function editTodo(formData: FormData) {
         description,
         isCompleted: false
     }
-    const todoListRes:TRes<Partial<ITodo>> = await TodoService.editTodo(+id, data)
+    const todoListRes:TRes<Partial<ITodo>> | TError<ITodo> = await TodoService.editTodo(+id, data)
     revalidatePath('/todo')
     return todoListRes
 }
@@ -46,11 +49,11 @@ export async function deleteTodo(id:number) {
 
 
 export async function getTodoList(payload: TTodoList) {
-    const todoListRes:TRes<ITodo[]> = await TodoService.fetchTodos(payload)
+    const todoListRes:TRes<ITodo[]> | TError<ITodo> = await TodoService.fetchTodos(payload)
     return todoListRes
 }
 
 export async function getTodoById(id:number) {
-    const todoListRes:TRes<ITodo> = await TodoService.fetchTodoById(id)
+    const todoListRes:TRes<ITodo> | TError<ITodo> = await TodoService.fetchTodoById(id)
     return todoListRes
 }

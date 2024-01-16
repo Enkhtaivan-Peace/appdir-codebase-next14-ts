@@ -13,11 +13,22 @@ declare type TButton = {
     isActive?: boolean
 }
 
+declare type TPaginate = {
+    total: number
+    pageCount: number
+    start:number
+    end:number
+    limit: number
+    nextPage:number
+    prevPage:number
+}
+
 declare type TRes<T> = {
     success?: boolean;
     message?: string;
     statusCode?:number;
-    data: T
+    data?: T
+    paginate?: TPaginate
 }
 
 declare type TFormElement = {

@@ -12,10 +12,10 @@ export const TodoService =  {
     fetchTodos: async (payload:TTodoList) => {
         const thePayload = {
             ...payload,
-            fieldName: 'todos'
+            fieldName: 'name'
         }
-        generateQuery(thePayload)
-        const res = await fetchCrud.fetchItems<ITodo[]>('/todos?sort=-createdAt')
+        const queryParams = generateQuery(thePayload)
+        const res = await fetchCrud.fetchItems<ITodo[]>('/todos' + queryParams)
         return res
     },
 
