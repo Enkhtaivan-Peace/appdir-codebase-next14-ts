@@ -44,6 +44,7 @@ const HeaderSc = tw.header`
     border-gray-300
     bg-white
     z-[100]
+    dark:bg-gray-900
 `
 
 export default AdminHeaderUi

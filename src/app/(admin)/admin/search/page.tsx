@@ -11,13 +11,13 @@ interface ISearchPage {
 
 const SearchPage : NextPage = async (props:ISearchPage) => {
     const { searchParams } = props
+    
     const search = searchParams?.search || null
     const page = Number(searchParams?.page) || 1
     const limit = Number(searchParams?.limit) || 10
     const todos = await getTodoList({ search, page, limit })
     const pagination = todos.paginate!
     
-    console.log('bbb', pagination)
   return (
     <div>
         <InputSearchUnControl id='search-input' name={'search'} />

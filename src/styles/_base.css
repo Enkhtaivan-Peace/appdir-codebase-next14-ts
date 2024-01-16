@@ -54,7 +54,8 @@
     p,
     label,
     span,
-    a {
+    a, 
+    .logo, button {
         @apply text-16 text-gray-600 dark:text-white font-robotoRegular leading-24;
     }
 
