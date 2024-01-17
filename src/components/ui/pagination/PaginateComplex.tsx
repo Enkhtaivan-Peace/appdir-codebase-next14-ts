@@ -26,7 +26,7 @@ function PaginateComplex(props:TPaginate) {
     console.log('pageNumbers', pageNumbers)
 
     const renderPaginationButtons = () => {
-        const firstElementSliced = pageNumbers.slice(1)
+        const firstElementSliced = pageNumbers.slice(2)
         return firstElementSliced.map((pageNumber, idx) =>     
             <li key={'pagination-button' + idx}>
                 <PaginationBtn 

@@ -11,7 +11,7 @@ function usePaginate(props:TPaginate) {
 
     const pageNumbers:Array<number> = [];
     // const pageNumbers = Array(pageCount).fill(intialPage)
-    for( let i = 1; i < pageCount; i++) {
+    for( let i = 0; i < pageCount; i++) {
         pageNumbers.push(i)
     }
 

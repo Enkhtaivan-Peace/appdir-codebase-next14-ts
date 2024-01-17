@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import tw from 'tailwind-styled-components'
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { FaAngleLeft, FaAngleRight, FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 import usePaginate from './usePaginate';
 
 function Paginate(props:TPaginate) {
@@ -24,13 +24,15 @@ function Paginate(props:TPaginate) {
     } = usePaginate(props)
 
     const renderPaginationButtons = () => {
-        return pageNumbers.map((_, idx) =>     
+        console.log('pageNumbersaaaa', pageNumbers)
+        const firstElementSliced = pageNumbers.slice(1)
+        return firstElementSliced.map((pageNumber, idx) =>     
             <li key={'pagination-button' + idx}>
                 <PaginationBtn 
-                    onClick={() => createPageURL(idx + 1)} 
+                    onClick={() => createPageURL(pageNumber)} 
                     className={ currentPage === (idx + 1) ? 'bg-emerald-700' : '' }
                 >
-                    <span className='text-12 text-white'>{ idx + 1 }</span>
+                    <span className='text-12 text-white'>{ pageNumber}</span>
                 </PaginationBtn>
             </li> 
         ).slice(currentPage-4 < 0 ? 0 : currentPage-4,currentPage+1 < 5 ? 5 : currentPage+1)
@@ -43,6 +45,15 @@ function Paginate(props:TPaginate) {
             {total}
         </p>
         <PaginationTw>
+            <li>
+                <button 
+                    disabled={currentPage === 1} 
+                    onClick={ () => createPageURL(1) }   
+                    className={currentPage === 1 ? 'text-emerald-500 cursor-not-allowed' : ''}
+                >
+                    <FaAnglesLeft />
+                </button>
+            </li>
             <li>
                 <button 
                     disabled={currentPage === 1} 
@@ -73,6 +84,15 @@ function Paginate(props:TPaginate) {
                     className={currentPage === pageCount ? 'text-emerald-500 cursor-not-allowed' : ''}
                 >
                     <FaAngleRight />
+                </button>
+            </li>
+            <li>
+                <button 
+                    disabled={currentPage === pageCount} 
+                    onClick={ () => createPageURL(pageCount) }   
+                    className={currentPage === pageCount ? 'text-emerald-500 cursor-not-allowed' : ''}
+                >
+                    <FaAnglesRight />
                 </button>
             </li>
         </PaginationTw>

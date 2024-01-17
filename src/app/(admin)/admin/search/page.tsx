@@ -31,7 +31,7 @@ const SearchPage : NextPage = async (props:ISearchPage) => {
                   />           
             </Suspense>
         </div>
-        <div className='mt-10 flex w-full justify-center'>
+        <div className='mt-10 flex w-full'>
            <Paginate {...pagination} />
            {/* <PaginateComplex {...pagination} /> */}
         </div>
