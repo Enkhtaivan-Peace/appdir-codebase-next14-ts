@@ -1,5 +1,6 @@
 import InputSearchUnControl from 'a/components/ui/form/elements/input/search/InputSearchUnControl';
 import Paginate from 'a/components/ui/pagination/Paginate';
+import PaginateComplex from 'a/components/ui/pagination/PaginateComplex';
 import TodoListTable from 'a/features/todo/TodoListTable';
 import { getTodoList } from 'a/features/todo/_todo-actions';
 import { NextPage } from 'next'
@@ -32,6 +33,7 @@ const SearchPage : NextPage = async (props:ISearchPage) => {
         </div>
         <div className='mt-10 flex w-full justify-center'>
            <Paginate {...pagination} />
+           {/* <PaginateComplex {...pagination} /> */}
         </div>
     </div>
   )

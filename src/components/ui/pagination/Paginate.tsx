@@ -1,46 +1,35 @@
 'use client'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
 import tw from 'tailwind-styled-components'
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import usePaginate from './usePaginate';
 
 function Paginate(props:TPaginate) {
-    const { total, pageCount, start, end, limit, nextPage, prevPage  } = props
+    const { 
+        total, 
+        pageCount, 
+        start, 
+        end, 
+        limit, 
+        nextPage, 
+        prevPage  
+    } = props
 
-    const router = useRouter()
-    const pathname = usePathname()
-    const searchParams = useSearchParams()
-    const currentPage = Number(searchParams.get('page')) || 1
-
-    const pageNumbers:Array<number> = []
-    for (let i = 0; i < pageCount; i++) {
-        pageNumbers.push(i);
-    }
-   
-    function createPageURL(pageNumber:number | string) {
-        if( currentPage === pageNumber ) return
-        const params = new URLSearchParams(searchParams)
-        params.set('page', pageNumber.toString())
-        const url = `${pathname}?${params.toString()}`
-        router.push(url)
-    }
-
-    function handleNext() {
-        if( nextPage === 0 ) return
-        createPageURL(nextPage)
-    }
-
-    function handlePrev() {
-        if(prevPage === pageCount) return 
-        createPageURL(prevPage)
-    }
+    const { 
+         currentPage, 
+         handleNext, 
+         handlePrev,
+         createPageURL,
+         pageNumbers
+    } = usePaginate(props)
 
     const renderPaginationButtons = () => {
-        // debugger
-        
-        return Array(pageCount).fill('').map((_, idx) =>     
+        return pageNumbers.map((_, idx) =>     
             <li key={'pagination-button' + idx}>
-                <PaginationBtn onClick={() => createPageURL(idx + 1)} className={ currentPage === (idx + 1) ? 'bg-emerald-700' : '' }>
+                <PaginationBtn 
+                    onClick={() => createPageURL(idx + 1)} 
+                    className={ currentPage === (idx + 1) ? 'bg-emerald-700' : '' }
+                >
                     <span className='text-12 text-white'>{ idx + 1 }</span>
                 </PaginationBtn>
             </li> 
@@ -92,6 +81,7 @@ function Paginate(props:TPaginate) {
 }
 
 export const PaginationContainer = tw.div`
+    w-full
     flex
     justify-between
     items-center
