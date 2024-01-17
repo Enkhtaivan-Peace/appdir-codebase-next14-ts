@@ -12,5 +12,5 @@ export function generateQuery(payload:any) {
         return null
     }).filter(Boolean).join('&');
 
-    return queryParams ? `?${queryParams}` : '';
+    return queryParams ? `?sort=-createdAt&${queryParams}` : '';
 }
