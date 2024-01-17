@@ -25,14 +25,14 @@ function Paginate(props:TPaginate) {
 
     const renderPaginationButtons = () => {
         console.log('pageNumbersaaaa', pageNumbers)
-        const firstElementSliced = pageNumbers.slice(1)
+        const firstElementSliced = pageNumbers
         return firstElementSliced.map((pageNumber, idx) =>     
             <li key={'pagination-button' + idx}>
                 <PaginationBtn 
-                    onClick={() => createPageURL(pageNumber)} 
+                    onClick={() => createPageURL(idx + 1 )} 
                     className={ currentPage === (idx + 1) ? 'bg-emerald-700' : '' }
                 >
-                    <span className='text-12 text-white'>{ pageNumber}</span>
+                    <span className='text-12 text-white'>{ idx + 1 }</span>
                 </PaginationBtn>
             </li> 
         ).slice(currentPage-4 < 0 ? 0 : currentPage-4,currentPage+1 < 5 ? 5 : currentPage+1)

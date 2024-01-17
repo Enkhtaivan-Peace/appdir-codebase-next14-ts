@@ -33,7 +33,7 @@ function InputSearchUnControl(props: Partial<TInput>) {
                 onChange={(e)=>handleSearch(e.target.value)}
                 id={id}
                 name={name}
-                defaultValue={'aaa'}
+                defaultValue={''}
                 placeholder={placeholder || ''}
                 aria-label={'search-input-' + name}
                 aria-invalid={isValid}
