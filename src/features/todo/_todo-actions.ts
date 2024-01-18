@@ -1,10 +1,8 @@
 'use server'
 import { revalidatePath } from "next/cache";
 import { TodoService } from "./TodoService";
-import { ITodo, TCreateTodo, TTodoList } from "./_interfaces";
+import { ITodo, TCreateTodo } from "./_interfaces";
 import { TError } from "a/common/fetch/fetchCrud";
-
-
 
 export async function addTodo(formData: FormData) {
     const name = formData.get('name') as string;
@@ -42,13 +40,11 @@ export async function editTodo(formData: FormData) {
 }
 
 export async function deleteTodo(id:number) {
-    const res = await TodoService.deleteTodo(id)
+    const res:any = await TodoService.deleteTodo(id)
     console.log(res)
 }
 
-
-
-export async function getTodoList(payload: TTodoList) {
+export async function getTodoList(payload: TListReq) {
     const todoListRes:TRes<ITodo[]> | TError<ITodo> = await TodoService.fetchTodos(payload)
     return todoListRes
 }
@@ -56,4 +52,9 @@ export async function getTodoList(payload: TTodoList) {
 export async function getTodoById(id:number) {
     const todoListRes:TRes<ITodo> | TError<ITodo> = await TodoService.fetchTodoById(id)
     return todoListRes
+}
+
+export async function createTodoInvoice(formData:FormData) {
+    const todoInvoice: any = await TodoService.createTodoInvoice(formData)
+    return todoInvoice
 }

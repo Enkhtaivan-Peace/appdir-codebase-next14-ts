@@ -1,3 +1,5 @@
+import { TError } from "a/common/fetch/fetchCrud";
+
 export interface ITodo {
     id?: number;
     name: string;
@@ -12,7 +14,4 @@ export type TCreateTodo = Exclude<ITodo, 'id' | 'createdAt'>
 export type TEditTodo = Partial<ITodo>
 export type TDeleteTodo = Partial<ITodo>
 
-export type TTodoList = Pick<TSearchParams, 'search'> & {
-    page?: number
-    limit?:number
-}
+export type TTodoListRes = TRes<ITodo[]> | TError<ITodo>

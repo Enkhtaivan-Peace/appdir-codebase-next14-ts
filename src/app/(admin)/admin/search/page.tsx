@@ -1,10 +1,13 @@
+import { Flex } from 'a/components/ui/containers/flex/Flex';
 import InputSearchUnControl from 'a/components/ui/form/elements/input/search/InputSearchUnControl';
 import Paginate from 'a/components/ui/pagination/Paginate';
 import PaginateComplex from 'a/components/ui/pagination/PaginateComplex';
 import TodoListTable from 'a/features/todo/TodoListTable';
 import { getTodoList } from 'a/features/todo/_todo-actions';
 import { NextPage } from 'next'
+import Link from 'next/link';
 import React, { Suspense } from 'react'
+import { BsPlusSquareDotted } from "react-icons/bs";
 
 interface ISearchPage {
     searchParams?: TSearchParams
@@ -21,7 +24,13 @@ const SearchPage : NextPage = async (props:ISearchPage) => {
     
   return (
     <div>
-        <InputSearchUnControl id='search-input' name={'search'} />
+        <Flex className='flex-col gap-30'>
+          <Link href={'/admin/search/add'} className='flex gap-10 items-center bg-emerald-500 w-fit py-5 px-20 rounded text-white'>
+              <p>Шинээр нэмэх</p>
+              <BsPlusSquareDotted />
+          </Link>
+          <InputSearchUnControl id='search-input' name={'search'} placeholder='шүүлт хийх ...' />
+        </Flex>
         <div className='py-30'>
             <Suspense key={'todolisttable-' + page} fallback={'уншиж байна ...'}>
                 <TodoListTable 

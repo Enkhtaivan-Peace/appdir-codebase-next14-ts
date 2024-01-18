@@ -42,7 +42,7 @@ declare type TFormElement = {
     onClick?: () => void
 }
 
-declare type TError = {
+declare type TAxiosError = {
     response: {
         status: number
     }
@@ -77,3 +77,10 @@ declare type TSearchParams = {
     page?:string | null
     limit?:string | null
 }
+
+declare type TListReq = Pick<TSearchParams, 'search'> & {
+    page?: number
+    limit?:number
+}
+
+

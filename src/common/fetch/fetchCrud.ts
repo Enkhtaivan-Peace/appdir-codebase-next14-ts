@@ -69,4 +69,6 @@ export type TError<T> = Partial<T> & ApiError<T>
         return await this.handleResponse<T>(response)
     }
 }
+
+export const fetchApi = new Fetch()
 export default Fetch

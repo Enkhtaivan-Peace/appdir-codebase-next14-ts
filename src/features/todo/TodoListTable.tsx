@@ -1,11 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import { getTodoList } from './_todo-actions'
-import { ITodo, TTodoList } from './_interfaces'
+import { ITodo } from './_interfaces'
 import moment from 'moment'
 import 'moment/locale/mn';
 
-async function TodoListTable(props:TTodoList) {
+async function TodoListTable( props:TListReq ) {
     const { search, page, limit } = props
     console.log('page props:', props)
     const todos = await getTodoList({ search, page, limit })

@@ -43,7 +43,7 @@ export function useCrud() {
                 ...(response.data.paginate && { paginate: response.data.paginate }),
             }
         } catch (e: unknown) {
-            const error = e as TError
+            const error = e as TAxiosError
             const { msg } = calcMessage(error?.response?.status)
             const val = { success: false, reason: msg, statusCode: error?.response?.status }
             return val
@@ -65,7 +65,7 @@ export function useCrud() {
             })
             return { success: true, data: response.data }
         } catch (e: unknown) {
-            const error = e as TError
+            const error = e as TAxiosError
             const { msg } = calcMessage(error?.response?.status)
             const val = { success: false, reason: msg, statusCode: error?.response?.status }
             return val
@@ -85,7 +85,7 @@ export function useCrud() {
             const val = { success: true, data: response.data }
             return val
         } catch (e: unknown) {
-            const error = e as TError
+            const error = e as TAxiosError
             const { msg } = calcMessage(error?.response?.status)
             console.error(e)
             const val = { success: false, reason: msg, statusCode: error?.response?.status }

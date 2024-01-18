@@ -1,42 +1,52 @@
-import FetchApi from "a/common/fetch/fetchCrud"
-import { ITodo, TCreateTodo, TDeleteTodo, TEditTodo, TTodoList } from "./_interfaces"
+import { fetchApi } from "a/common/fetch/fetchCrud"
+import { ITodo, TCreateTodo, TDeleteTodo, TEditTodo } from "./_interfaces"
 import { generateQuery } from "a/common/fetch/queryGenerator"
 
-const fetchCrud = new FetchApi()
 const options = {
     next: { revalidate: true },
 }
 
 export const TodoService =  {
 
-    fetchTodos: async (payload:TTodoList) => {
+    fetchTodos: async (payload:TListReq) => {
         const thePayload = {
             ...payload,
             fieldName: 'name'
         }
         const queryParams = generateQuery(thePayload)
-        const res = await fetchCrud.fetchItems<ITodo[]>('/todos' + queryParams)
+        const res = await fetchApi.fetchItems<ITodo[]>('/todos' + queryParams)
         return res
     },
 
     fetchTodoById: async (id:number) => {
-        const res = await fetchCrud.fetchItems<ITodo>('/todos/' + id)
+        const res = await fetchApi.fetchItems<ITodo>('/todos/' + id)
         return res
     },
 
     addTodo: async (data:TCreateTodo) => {
-        const res = await fetchCrud.createItem<TCreateTodo>('/todos', data )
+        const res = await fetchApi.createItem<TCreateTodo>('/todos', data )
         return res;
     },
 
     editTodo: async (id:number, data:TEditTodo) => {
-        const res = await fetchCrud.updateItem<TEditTodo>('/todos/' + id, data )
+        const res = await fetchApi.updateItem<TEditTodo>('/todos/' + id, data )
         return res;
     },
 
     deleteTodo: async (id:number) => { 
         console.log('todoId:', id)
-        const res = await fetchCrud.deleteItem<TDeleteTodo>('/todos', id)
+        const res = await fetchApi.deleteItem<TDeleteTodo>('/todos', id)
         return res
+    },
+
+    createTodoInvoice: async (formData:FormData) => {
+        const rawFormData = {
+            userId: formData.get('userId'),
+            todoId: formData.get('todo'),
+            amount: formData.get('amount'),
+            status: 'in progress',
+        }
+        console.log('rawData', rawFormData)
+        // const rawFormData = Object.fromEntries(formData.entries())
     }
 }
