@@ -3,6 +3,7 @@ import { Button } from 'a/components/ui/button'
 import { ITodo, TTodoListRes } from '../_interfaces'
 import { createTodoInvoice } from '../_todo-actions'
 import { IUser } from 'a/features/user/_interfaces'
+import RadioBox from 'a/components/ui/form/elements-server-side/RadioBox'
 
 interface ITodoInvoiceForm {
   todosRes: TRes<ITodo[]>
@@ -11,8 +12,8 @@ interface ITodoInvoiceForm {
 
 
 async function TodoInvoiceForm(props: ITodoInvoiceForm) {
-  const { todosRes } = props
- 
+  const { todosRes, usersRes } = props
+  console.log('usersRes', usersRes)
   
   return (
     <form action={createTodoInvoice} className='flex flex-col gap-20'>
@@ -24,6 +25,17 @@ async function TodoInvoiceForm(props: ITodoInvoiceForm) {
               ))
             }
           </select>
+          {
+            usersRes?.data?.map(( user, idx ) => (
+              <RadioBox 
+                  key={'radio-' + idx} 
+                  id={`user-${idx}`} 
+                  value={user.id} 
+                  name={'userId'} 
+                  label={user.name}  
+              />
+            ))
+          }
           <Button type='submit' variant={'outline'}>
               Create todo
           </Button>

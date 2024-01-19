@@ -4,6 +4,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import User from "a/features/user/model/User";
 import connect from "a/common/db/db-config";
+import { authService } from "./authService";
+import { decodeToken } from "./token";
 
 export const authOptions: any = {
     // Configure one or more authentication providers
@@ -15,17 +17,15 @@ export const authOptions: any = {
           email: { label: "Email", type: "text" },
           password: { label: "Password", type: "password" },
         },
-        async authorize(credentials: any) {
-          await connect();
+        async authorize(credentials: any):Promise<any> {
+          // await connect();
           try {
-            const user = await User.findOne({ email: credentials.email });
-            if (user) {
-              const isPasswordCorrect = await bcrypt.compare(
-                credentials.password,
-                user.password
-              );
-              if (isPasswordCorrect) {
-                return user;
+            const res = await authService.login(credentials)
+            if(res.success && res.token) {
+              const user = await decodeToken(res.token)
+              return { 
+                  ...user,
+                  token: res.token
               }
             }
           } catch (err: any) {
@@ -40,29 +40,50 @@ export const authOptions: any = {
       // ...add more providers here
     ],
     callbacks: {
-      async signIn({ user, account }: { user: AuthUser; account: Account }) {
+      async signIn({ user, account }: { user: string; account: Account }) {
+          
         if (account?.provider == "credentials") {
           return true;
         }
-        if (account?.provider == "github") {
-          await connect();
-          try {
-            const existingUser = await User.findOne({ email: user.email });
-            if (!existingUser) {
-              const newUser = new User({
-                email: user.email,
-              });
+      
+        // if (account?.provider == "github") {
+        //   await connect();
+        //   try {
+        //     const existingUser = await User.findOne({ email: user.email });
+        //     if (!existingUser) {
+        //       const newUser = new User({
+        //         email: user.email,
+        //       });
   
-              await newUser.save();
-              return true;
-            }
-            return true;
-          } catch (err) {
-            console.log("Error saving user", err);
-            return false;
-          }
-        }
+        //       await newUser.save();
+        //       return true;
+        //     }
+        //     return true;
+        //   } catch (err) {
+        //     console.log("Error saving user", err);
+        //     return false;
+        //   }
+        // }
+
+        return null
       },
+
+      async jwt({ token, user }:any) {
+        if(user) {
+          token.user = user
+          return token
+        }
+        return token
+      },
+
+      async session(context:any) {
+        const { session, token }  = context
+        session.user = token?.user
+        return session
+      }
+    },
+    session: {
+      strategy: 'jwt'
     },
     debug: process.env.NODE_ENV !== "production"
   };

@@ -23,7 +23,7 @@ export type TError<T> = Partial<T> & ApiError<T>
         return responseData
     }
 
-    public async fetchItems<T>(url: string, token?: string): Promise<TRes<T> | TError<T>> {
+    public async get<T>(url: string, token?: string): Promise<TRes<T> | TError<T>> {
         const response = await fetch(this.BASE_URL + url, {
             method: 'GET',
             headers: {
@@ -34,7 +34,7 @@ export type TError<T> = Partial<T> & ApiError<T>
         return await this.handleResponse<T>(response)
     }
 
-    public async createItem<T>(url:string, data: T, token?: string): Promise<TRes<T> | TError<T>> {
+    public async post<T>(url:string, data: T, token?: string): Promise<TRes<T> | TError<T>> {
         const response = await fetch(this.BASE_URL + url, {
             method: 'POST',
             headers: {
@@ -46,7 +46,7 @@ export type TError<T> = Partial<T> & ApiError<T>
         return await this.handleResponse<T>(response)
     }
 
-    public async updateItem<T>(url:string, data: T, token?: string): Promise<TRes<T> | TError<T>> {
+    public async put<T>(url:string, data: T, token?: string): Promise<TRes<T> | TError<T>> {
         const response = await fetch(`${this.BASE_URL}${url}`, {
             method: 'PUT',
             headers: {
@@ -58,7 +58,7 @@ export type TError<T> = Partial<T> & ApiError<T>
         return await this.handleResponse<T>(response)
     }
 
-    public async deleteItem<T>(url:string,  id: number, token?: string): Promise<TRes<T> | TError<T>> {
+    public async delete<T>(url:string,  id: number, token?: string): Promise<TRes<T> | TError<T>> {
         const response = await fetch(`${this.BASE_URL}${url}/${id}`, {
             method: 'DELETE',
             headers: {

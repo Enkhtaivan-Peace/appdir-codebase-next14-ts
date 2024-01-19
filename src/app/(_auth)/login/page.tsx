@@ -12,7 +12,7 @@ const Login = () => {
 
   useEffect(() => {
     if (sessionStatus === "authenticated") {
-      router.replace("/dashboard");
+      router.replace("/admin");
     }
   }, [sessionStatus, router]);
 
@@ -31,7 +31,7 @@ const Login = () => {
       return;
     }
 
-    if (!password || password.length < 8) {
+    if (!password || password.length < 4) {
       setError("Password is invalid");
       return;
     }

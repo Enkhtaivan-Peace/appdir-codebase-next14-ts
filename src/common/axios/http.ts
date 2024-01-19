@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getSession } from 'next-auth/react';
 // import { config } from 'common/config/config'
 // import { Local } from 'libs/constants'
 // import { getLocal } from '../storage/localStorage'
@@ -17,4 +18,18 @@ axios.defaults.baseURL = process.env.NEXT_BACKEND_URL
 // if (token) {
 //   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 // }
+
+axios.interceptors.request.use(async (request:any) => {
+    const session:any = await getSession();
+  
+    if (session) {
+      request.headers = {
+        ...request.headers,
+        Authorization: `Bearer ${session.jwt}`,
+      };
+    }
+  
+    return request;
+});
+
 export default axios

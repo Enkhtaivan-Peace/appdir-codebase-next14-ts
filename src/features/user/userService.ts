@@ -8,36 +8,36 @@ const options = {
 
 const user = 'users'
 
-export const userService =  {
+export const userService = {
 
-    fetchUsers: async (payload:TListReq) => {
+    fetchUsers: async (payload:TListReq, token:string) => {
         const thePayload = {
             ...payload,
             fieldName: 'name'
         }
         const queryParams = generateQuery(thePayload)
-        const res = await fetchApi.fetchItems<IUser[]>(`/${user}` + queryParams)
+        const res = await fetchApi.get<IUser[]>(`/${user}` + queryParams, token)
         return res
     },
 
     fetchUserById: async (id:number) => {
-        const res = await fetchApi.fetchItems<IUser>(`/${user}/` + id)
+        const res = await fetchApi.get<IUser>(`/${user}/` + id)
         return res
     },
 
     addUser: async (data:TCreateUser) => {
-        const res = await fetchApi.createItem<TCreateUser>(`/${user}`, data )
+        const res = await fetchApi.post<TCreateUser>(`/${user}`, data )
         return res;
     },
 
     editUser: async (id:number, data:TEditUser) => {
-        const res = await fetchApi.updateItem<TEditUser>(`/${user}/` + id, data )
+        const res = await fetchApi.put<TEditUser>(`/${user}/` + id, data )
         return res;
     },
 
     deleteUser: async (id:number) => { 
         console.log('todoId:', id)
-        const res = await fetchApi.deleteItem<TDeleteUser>(`/${user}`, id)
+        const res = await fetchApi.delete<TDeleteUser>(`/${user}`, id)
         return res
     },
 }

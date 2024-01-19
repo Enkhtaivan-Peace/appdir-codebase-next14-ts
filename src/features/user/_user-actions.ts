@@ -3,8 +3,11 @@
 import { TError } from "a/common/fetch/fetchCrud"
 import { IUser } from "./_interfaces"
 import { userService } from "./userService"
+import { getAccessToken } from "a/common/auth/_actions"
+
 
 export async function getUserList(payload: TListReq) {
-    const userListRes: TRes<IUser[]> | TError<IUser> = await userService.fetchUsers(payload)
+    const token = await getAccessToken()
+    const userListRes: TRes<IUser[]> | TError<IUser> = await userService.fetchUsers(payload, token)
     return userListRes
 }

@@ -29,6 +29,7 @@ declare type TRes<T> = {
     statusCode?:number;
     data?: T
     paginate?: TPaginate
+    token?:string
 }
 
 declare type TFormElement = {
