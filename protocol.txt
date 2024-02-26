@@ -1,0 +1,1 @@
+backend project: ts-sequelize-mysql-demo - г асаана уу!!!
