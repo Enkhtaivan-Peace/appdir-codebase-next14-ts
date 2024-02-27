@@ -2,6 +2,7 @@ import { fetchApi } from "a/common/fetch/fetchCrud";
 import { ITodo, TCreateTodo, TDeleteTodo, TEditTodo } from "./_interfaces";
 import { generateQuery } from "a/common/fetch/queryGenerator";
 import { getSessionObject } from "a/common/auth/_actions";
+import { revalidateTag } from "next/cache";
 
 export const TodoService = {
   fetchTodos: async (payload: TListReq) => {
@@ -10,7 +11,10 @@ export const TodoService = {
       fieldName: "name",
     };
     const queryParams = generateQuery(thePayload);
-    const res = await fetchApi.get<ITodo[]>({ url: "/todos" + queryParams });
+    const res = await fetchApi.get<ITodo[]>({
+      url: "/todos" + queryParams,
+      cacheName: "todos",
+    });
     return res;
   },
 
@@ -21,6 +25,7 @@ export const TodoService = {
 
   addTodo: async (data: TCreateTodo) => {
     const res = await fetchApi.post<TCreateTodo>({ url: "/todos", data });
+    revalidateTag("todos");
     return res;
   },
 

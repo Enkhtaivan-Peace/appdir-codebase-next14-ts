@@ -2,10 +2,6 @@ import { fetchApi } from "a/common/fetch/fetchCrud";
 import { IUser, TCreateUser, TDeleteUser, TEditUser } from "./_interfaces";
 import { generateQuery } from "a/common/fetch/queryGenerator";
 
-const options = {
-  next: { revalidate: true },
-};
-
 const user = "users";
 
 export const userService = {

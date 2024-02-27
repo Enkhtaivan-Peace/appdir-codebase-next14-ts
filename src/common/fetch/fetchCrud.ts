@@ -16,6 +16,7 @@ type TFetchAction<T> = {
 
 export type TError<T> = Partial<T> & ApiError<T>;
 
+const { signal } = new AbortController();
 class Fetch {
   private readonly BASE_URL: string;
   constructor(baseUrl?: string) {
@@ -43,6 +44,7 @@ class Fetch {
       const next: any = {
         tags: [`${cacheName}`],
       };
+      headers.append("cache", "force-cache");
       headers.append("next", next);
     }
 
@@ -58,6 +60,7 @@ class Fetch {
     const response = await fetch(this.BASE_URL + url, {
       method: "GET",
       headers,
+      signal,
     });
 
     return await this.handleResponse<T>(response);
@@ -74,6 +77,7 @@ class Fetch {
       method: "POST",
       headers,
       body: JSON.stringify(data),
+      signal,
     });
     return await this.handleResponse<T>(response);
   }
@@ -88,6 +92,7 @@ class Fetch {
       method: "PUT",
       headers,
       body: JSON.stringify(data),
+      signal,
     });
     return await this.handleResponse<T>(response);
   }
@@ -101,6 +106,7 @@ class Fetch {
     const response = await fetch(`${this.BASE_URL}${url}`, {
       method: "DELETE",
       headers,
+      signal,
     });
     return await this.handleResponse<T>(response);
   }

@@ -1,11 +1,6 @@
 import { z } from "zod";
 
-const TodoFormSchema = z.object({
-  name: z.string(),
+export const TodoFormSchema = z.object({
+  name: z.string().min(4),
   description: z.string(),
-});
-
-export const CreateTodo: any = TodoFormSchema.omit({
-  name: true,
-  description: true,
 });

@@ -4,30 +4,31 @@ import { TodoService } from "./TodoService";
 import { ITodo, TCreateTodo } from "./_interfaces";
 import { TError } from "a/common/fetch/fetchCrud";
 import { getAccessToken } from "a/common/auth/_actions";
-import { CreateTodo } from "./form/todoSchema";
+import { TodoFormSchema } from "./form/todoSchema";
+import { validateForm } from "a/common/validation/validate";
 
 export async function addTodo(formData: FormData) {
-  //   const name = formData.get("name") as string;
+  const name = formData.get("name") as string;
   const photo = formData.get("photo") as string;
-  //   const description = formData.get("description") as string;
+  const description = formData.get("description") as string;
 
-  const { name, description } = CreateTodo.parse({
-    name: formData.get("name") as string,
-    description: formData.get("description") as string,
-  });
-
-  const data: TCreateTodo = {
+  const parse = TodoFormSchema.parse({
     name,
+    description,
+  });
+  console.log("parse", parse);
+  const data: TCreateTodo = {
+    name: parse.name,
     photo:
       photo || photo !== ""
         ? photo
         : "https://loremflickr.com/640/480/technics",
-    description: description ?? "no-description",
+    description: parse.description ?? "no-description",
     isCompleted: false,
   };
   const todoListRes: TRes<Partial<ITodo>> | TError<ITodo> =
     await TodoService.addTodo(data);
-  revalidatePath("/todo");
+  // revalidatePath("/todo");
   return todoListRes;
 }
 
