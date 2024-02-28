@@ -6,7 +6,5 @@ export const getRandomNumber = async () => {
     },
   });
   const { random } = await res.json();
-  console.log("its run");
-  console.log(random);
   return { random };
 };

@@ -14,11 +14,20 @@ function Nav() {
             <Link href="/login">
               <li>Login</li>
             </Link>
+            <Link href="/">
+              <li>Home</li>
+            </Link>
             <Link href="/register">
               <li>Register</li>
             </Link>
             <Link href="/render/csr">
               <li>client page</li>
+            </Link>
+            <Link href="/render/isr">
+              <li>isr page</li>
+            </Link>
+            <Link href="/render/ssg">
+              <li>ssg page</li>
             </Link>
             <Link href="/render/ssr">
               <li>ssr page</li>

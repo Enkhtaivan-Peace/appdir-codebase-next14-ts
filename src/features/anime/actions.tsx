@@ -1,11 +1,11 @@
-'use server'
-import AnimeCard from "./AnimeCard"
-import { IAnimeProp } from "./AnimeList"
+"use server";
+import AnimeCard from "./AnimeCard";
+import { IAnimeProp } from "./AnimeList";
+import { AnimeServices } from "./anime.services";
 
-export const fetchAnimes = async (page:number) => {
-    const res = await fetch(`https://shikimori.one/api/animes?page=${page}&limit=8&order=popularity`)
-    const data = await res.json()
-    return  data.map((item:IAnimeProp, idx:number) =>(
-        <AnimeCard key={'anime' + idx} {...item} idx={idx} />
-    ))
-}
+export const fetchAnimes = async (page: number) => {
+  const data = await AnimeServices.getAnimeList({ page });
+  return data.map((item: IAnimeProp, idx: number) => (
+    <AnimeCard key={"anime" + idx} {...item} idx={idx} />
+  ));
+};
