@@ -11,7 +11,7 @@ type TParams = {
 };
 
 const ISRPage = async ({ params }: TParams) => {
-  const data = await AnimeServices.get_ISR_or_SSG_AnimeList({ page: 1 });
+  const data = await AnimeServices.get_ISR_AnimeList({ page: 1 });
   return (
     <Wrapper>
       <h1>ISR list page: </h1>

@@ -10,7 +10,7 @@ export const AnimeServices = {
     );
     return await res.json();
   },
-  get_ISR_or_SSG_AnimeList: async ({ page, limit }: any) => {
+  get_ISR_AnimeList: async ({ page, limit }: any) => {
     const res = await fetch(
       `https://shikimori.one/api/animes?page=${page}&${
         limit || 8
@@ -26,7 +26,11 @@ export const AnimeServices = {
     return await res.json();
   },
 
-  get_ISR_or_SSG_AnimeDetail: async ({ id }: any) => {
+  getAnimeDetail: async ({ id }: { id: number }) => {
+    if (!id) {
+      return { code: 404, message: "test" };
+    }
+    console.log("DEBUGGING: " + id);
     const res = await fetch(`https://shikimori.one/api/animes/` + id);
     return await res.json();
   },

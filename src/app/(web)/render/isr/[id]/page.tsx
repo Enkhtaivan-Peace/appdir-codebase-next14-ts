@@ -6,7 +6,7 @@ import React, { Suspense } from "react";
 
 const ISrDetailPage: NextPage = async (props: any) => {
   const id = props.params.id;
-  const data = await AnimeServices.get_ISR_or_SSG_AnimeDetail(id);
+  const data = await AnimeServices.getAnimeDetail(id);
   return (
     <Wrapper>
       <h4>ISrDetailPage: {id}</h4>
