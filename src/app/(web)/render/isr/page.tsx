@@ -1,5 +1,6 @@
 import { Wrapper } from "a/components/ui/containers/Wrapper";
 import { AnimeServices } from "a/features/anime/anime.services";
+import { getRandomNumber } from "a/features/render/ssr/_ssr-actions";
 import Link from "next/link";
 import React from "react";
 
@@ -10,11 +11,25 @@ type TParams = {
   };
 };
 
+export async function generateStaticParams() {
+  const preRenderedAnimeList = await AnimeServices.getAnimeList({
+    page: 1,
+    limit: 20,
+  });
+  return preRenderedAnimeList.map((anime: any, idx: number) => ({
+    id: anime.id.toString(),
+  }));
+}
+
 const ISRPage = async ({ params }: TParams) => {
   const data = await AnimeServices.get_ISR_AnimeList({ page: 1 });
+  // const data = await AnimeServices.getAnimeList({ page: 1 });
+  console.log("aaaa", data);
+  const { random } = await getRandomNumber();
   return (
     <Wrapper>
       <h1>ISR list page: </h1>
+      <h4>number: {random || "байхгүй"}</h4>
       <p>
         <strong>number</strong> яагаад refresh хийхэд өөрчлөгдөхгүй байгаа вэ
         гэвэл, nextjs - ийн cache - д revalidate: 5 гэж тохируулсан учраас 5
@@ -30,15 +45,5 @@ const ISRPage = async ({ params }: TParams) => {
     </Wrapper>
   );
 };
-
-export async function generateStaticParams() {
-  const preRenderedAnimeList = await AnimeServices.getAnimeList({
-    page: 1,
-    limit: 20,
-  });
-  return preRenderedAnimeList.map((anime: any, idx: number) => ({
-    id: anime.id.toString(),
-  }));
-}
 
 export default ISRPage;

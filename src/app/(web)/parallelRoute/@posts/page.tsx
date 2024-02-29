@@ -1,6 +1,9 @@
+import { wait } from "a/common/delay/timer";
 import React from "react";
 
-function PostsPage() {
+async function PostsPage() {
+  await wait(5000);
+  throw new Error("aldaa");
   return <div>PostsPage</div>;
 }
 
