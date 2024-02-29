@@ -32,6 +32,9 @@ function Nav() {
             <Link href="/render/ssr">
               <li>ssr page</li>
             </Link>
+            <Link href="/parallelRoute">
+              <li>ParallelRoute</li>
+            </Link>
           </>
         ) : (
           <>
