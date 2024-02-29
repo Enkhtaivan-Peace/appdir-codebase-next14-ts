@@ -22,8 +22,8 @@ const CSRpage: NextPage = () => {
     <Wrapper>
       <Flex className="flex-col gap-20">
         <h4>{num}</h4>
-        <Button variant={"secondary"} onClick={() => push("/render/ssr")}>
-          goto Server Side Rendered page
+        <Button variant={"secondary"} onClick={() => push("/render/isr")}>
+          goto ISR Rendered page
         </Button>
       </Flex>
     </Wrapper>
