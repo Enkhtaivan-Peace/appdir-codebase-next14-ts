@@ -5,8 +5,21 @@ import { PaginationBtn, PaginationContainer, PaginationTw } from "./Paginate";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { FirstBtn, LastBtn, NextBtn, PrevBtn } from "./ControlButtons";
 
-function PaginateComplex(props: TPaginate) {
-  const { total, pageCount, start, end, limit, nextPage, prevPage } = props;
+function PaginateComplex(
+  props: TPaginate & {
+    isPlaceholderData?: boolean;
+  }
+) {
+  const {
+    total,
+    pageCount,
+    start,
+    end,
+    limit,
+    nextPage,
+    prevPage,
+    isPlaceholderData,
+  } = props;
 
   const { currentPage, handleNext, handlePrev, createPageURL, pageNumbers } =
     usePaginate(props);

@@ -1,107 +1,65 @@
 import axios from './http'
-import useMessageFactory from '../message/useMessageFactory'
-import { AxiosResponse } from 'axios'
-
-
-export interface IPaginate {
-    start: number
-    end: number
-    limit: number
-    prevPage: number
-    nextPage: number
-    pageCount: number
-    total: number
-}
-export interface IRes<T> {
-    success: boolean
-    data?: T
-    reason?: string
-    error?: unknown
-    statusCode?: number
-    paginate?: IPaginate
-}
+import { TNoobRes, httpErrorHandler } from './axios.service'
 
 export function useCrud() {
-    const { calcMessage } = useMessageFactory()
-    const token = null
+    // const token = typeof window !== 'undefined' && getToken()
 
-    async function getData<T>(restUrl: string, isProtected: boolean = false): Promise<IRes<T>> {
+    async function getData<T>(restUrl: string): Promise<TNoobRes<T>> {
         try {
-            const response: AxiosResponse<any> = await axios({
+            const response: any = await axios({
                 method: 'get',
                 url: restUrl,
                 headers: {
                     'Access-Control-Allow-Origin': '*',
-                    Authorization: isProtected ? `Bearer ${token}` : undefined,
                 },
             })
-            console.log('bbbb', response)
-
-            return {
-                success: true,
-                data: response.data.data as T,
-                ...(response.data.paginate && { paginate: response.data.paginate }),
-            }
-        } catch (e: unknown) {
-            const error = e as TAxiosError
-            const { msg } = calcMessage(error?.response?.status)
-            const val = { success: false, reason: msg, statusCode: error?.response?.status }
-            return val
+            return response.data
+        } catch (e: any) {
+            return httpErrorHandler<T>(e)
         }
     }
 
-    async function postData<T>(restUrl: string, data: unknown, isProtected: boolean = false): Promise<IRes<T>> {
+    async function postData<T>(restUrl: string, data: unknown, isFormData: boolean = false): Promise<TNoobRes<T>> {
         try {
-            const response: AxiosResponse<T> = await axios({
+            const response: any = await axios({
                 method: 'post',
                 data,
                 url: restUrl,
                 withCredentials: true,
                 headers: {
-                    Authorization: isProtected ? `Bearer ${token}` : undefined,
-                    'Content-Type': 'application/json',
+                    'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
                     'Access-Control-Allow-Credentials': true,
                 },
             })
-            return { success: true, data: response.data }
-        } catch (e: unknown) {
-            const error = e as TAxiosError
-            const { msg } = calcMessage(error?.response?.status)
-            const val = { success: false, reason: msg, statusCode: error?.response?.status }
-            return val
+            return response.data
+        } catch (e: any) {
+            const error = httpErrorHandler(e)
+            console.log('error', error)
+            throw e
         }
     }
 
-    async function putData<T>(restUrl: string, editedModel: T, isProtected: boolean = false): Promise<IRes<T>> {
+    async function putData<T>(restUrl: string, editedModel: T, isFormData: boolean = false): Promise<TNoobRes<T>> {
         try {
-            const response = await axios({
+            const response: any = await axios({
                 method: 'put',
                 data: editedModel,
                 url: restUrl,
                 headers: {
-                    Authorization: isProtected ? `Bearer ${token}` : undefined,
+                    'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
                 },
             })
-            const val = { success: true, data: response.data }
-            return val
-        } catch (e: unknown) {
-            const error = e as TAxiosError
-            const { msg } = calcMessage(error?.response?.status)
-            console.error(e)
-            const val = { success: false, reason: msg, statusCode: error?.response?.status }
-            return val
+            return response.data
+        } catch (e: any) {
+            return httpErrorHandler<T>(e)
         }
     }
 
-    async function deleteData(restUrl: string) {
-        const response = await axios({
+    function deleteData(restUrl: string) {
+        return axios({
             method: 'delete',
             url: restUrl,
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
         })
-        return response.data
     }
 
     return { getData, postData, putData, deleteData }

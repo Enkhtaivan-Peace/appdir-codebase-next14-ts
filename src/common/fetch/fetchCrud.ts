@@ -63,7 +63,10 @@ class Fetch {
       signal,
     });
 
-    return await this.handleResponse<T>(response);
+    const a = await this.handleResponse<T>(response);
+
+    console.log("res", a);
+    return a;
   }
 
   public async post<T>({

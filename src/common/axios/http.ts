@@ -1,35 +1,36 @@
-import axios from 'axios'
-import { getSession } from 'next-auth/react';
-// import { config } from 'common/config/config'
-// import { Local } from 'libs/constants'
-// import { getLocal } from '../storage/localStorage'
-// const Axios: AxiosInstance = axios.create({
-//   baseURL: config.Url.BACKEND_URL,
-//   headers: {
-//     "Access-Control-Allow-Origin": "*",
-//     "Content-Type": "application/json",
-//   },
-// });
+import axios from "axios";
+import { getAuthToken } from "../auth/token";
 
-axios.defaults.withCredentials = true // cookie - д бга бүх зүйлийг rest service рүү дамжуулах тохиргоо
-axios.defaults.baseURL = process.env.NEXT_BACKEND_URL
+axios.defaults.withCredentials = true; // cookie - д бга бүх зүйлийг rest service рүү дамжуулах тохиргоо
+// axios.defaults.baseURL = process.env.NEXT_BACKEND_URL
 // const token = getLocal(Local.TOKEN);
-
-// if (token) {
-//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// }
-
-axios.interceptors.request.use(async (request:any) => {
-    const session:any = await getSession();
-  
-    if (session) {
-      request.headers = {
-        ...request.headers,
-        Authorization: `Bearer ${session.jwt}`,
-      };
+axios.interceptors.request.use(
+  async (config) => {
+    const token = typeof window !== "undefined" && getAuthToken();
+    if (config.headers && token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
-  
-    return request;
-});
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-export default axios
+axios.interceptors.response.use(
+  async (response) => {
+    // Do something with the response data
+    return response;
+  },
+  async (error) => {
+    // Check if the error status is 401 (Unauthorized)
+    if (error.response && error.response.status === 401) {
+      // Redirect to the login page
+      window.location.href = "/login"; // Replace '/login' with your login page URL
+    }
+
+    return await Promise.reject(error);
+  }
+);
+
+export default axios;

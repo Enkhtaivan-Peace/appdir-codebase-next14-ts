@@ -57,6 +57,11 @@ function Nav() {
       href: "/todo",
       text: "todo",
     },
+    {
+      id: 9,
+      href: "/client-cache",
+      text: "client-cache",
+    },
   ];
   return (
     <nav className="nav" aria-label="Global">

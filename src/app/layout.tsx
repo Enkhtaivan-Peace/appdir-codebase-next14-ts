@@ -5,6 +5,7 @@ import SessionProvider from "a/common/auth/SessionProvider";
 import { getServerSession } from "next-auth";
 import { ThemeProvider } from "a/common/theme/themeProvider";
 import { cn } from "a/common/utils";
+import ReactQueryProvider from "a/common/tanstack/ReactQuery";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,9 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn(" antialiased", inter.className)}>
         <ThemeProvider>
-          <SessionProvider session={session}>{children}</SessionProvider>
+          <SessionProvider session={session}>
+            <ReactQueryProvider>{children}</ReactQueryProvider>
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>
