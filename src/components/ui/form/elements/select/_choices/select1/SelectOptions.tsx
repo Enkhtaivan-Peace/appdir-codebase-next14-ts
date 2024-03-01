@@ -73,7 +73,6 @@ const SelectLi = tw(motion.li)<ISelectLi>`
     last:border-0
      hover:text-blue 
     ${(p) => {
-        console.log('aaa', p)
         return p.isactive === 'true' && ' text-orange'
     }} 
 `
