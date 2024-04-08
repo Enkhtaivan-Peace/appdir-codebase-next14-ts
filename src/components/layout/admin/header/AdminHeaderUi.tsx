@@ -21,7 +21,7 @@ function AdminHeaderUi(): JSX.Element {
     console.log('session', session)
 
     const handleShowPopup = useCallback(() => {
-        showGlobalPopup(GLOBAL_POPUP_TYPES.ALERT, { hello: 'hello' })
+        showGlobalPopup(GLOBAL_POPUP_TYPES.ALERT, { message: 'hello' })
     }, [])
 
     return (

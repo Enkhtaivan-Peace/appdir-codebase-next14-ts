@@ -1,5 +1,5 @@
-import MainPopup from '@/common/popup/_partials/MainPopup'
-import { usePopupCtx } from '@/common/popup/usePopupCtx'
+import MainPopup from '@/common/popup/pagePopup/MainPopup'
+import { usePopupCtx } from '@/common/popup/pagePopup/usePagePopupCtx'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import TodoEditForm from '../form/TodoEditForm'

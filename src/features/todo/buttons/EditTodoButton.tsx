@@ -1,6 +1,6 @@
 'use client'
-import { POPUP_TYPES } from '@/common/popup/popupRegistration'
-import { usePopupCtx } from '@/common/popup/usePopupCtx'
+import { POPUP_TYPES } from '@/common/popup/pagePopup/pagePopupRegistration'
+import { usePopupCtx } from '@/common/popup/pagePopup/usePagePopupCtx'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { MdOutlineModeEditOutline } from 'react-icons/md'

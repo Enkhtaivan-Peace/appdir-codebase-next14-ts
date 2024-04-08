@@ -1,7 +1,7 @@
 import React from 'react'
 import { useGlobalPopupCtx } from '../useGlobalPopupCtx'
 import { Flex } from '@/components/ui/containers/flex/Flex'
-import GlobalMainPopup from '../../_partials/GlobalMainPopup'
+import GlobalMainPopup from '../GlobalMainPopup'
 
 function InfoPopup(): JSX.Element {
     const { hideGlobalPopup, hideAllGlobalPopups } = useGlobalPopupCtx()

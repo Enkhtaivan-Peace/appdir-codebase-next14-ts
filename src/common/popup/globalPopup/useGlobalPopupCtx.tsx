@@ -14,11 +14,14 @@ interface IPopupCtx {
     popupHistory: string[]
     globalPopupState: any
     setGlobalPopupState: (state: any) => void
+    open: boolean
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const GlobalPopupCtx = createContext<IPopupCtx>({} as IPopupCtx)
 
 const GlobalPopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [open, setOpen] = useState(false)
     const [store, setStore] = useState<ModalProps>({
         popupType: null,
         popupProps: [],
@@ -32,6 +35,7 @@ const GlobalPopupProvider: FC<{ children: React.ReactNode }> = ({ children }) =>
     }
 
     const showGlobalPopup = (popupType: GLOBAL_POPUP_TYPE, popupProps?: any): void => {
+        setOpen(true)
         const updatedPopupProps = [...store.popupProps, { popupType, popupProps }]
         setStore({
             ...store,
@@ -73,6 +77,7 @@ const GlobalPopupProvider: FC<{ children: React.ReactNode }> = ({ children }) =>
         }
     }
     const hideAllGlobalPopups = () => {
+        setOpen(false)
         setStore({ ...store, popupType: null, popupProps: [] })
         setPopupHistory([])
     }
@@ -87,6 +92,8 @@ const GlobalPopupProvider: FC<{ children: React.ReactNode }> = ({ children }) =>
     return (
         <GlobalPopupCtx.Provider
             value={{
+                open,
+                setOpen,
                 store,
                 showGlobalPopup,
                 hideGlobalPopup,

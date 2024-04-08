@@ -1,6 +1,6 @@
 'use client'
 import React, { createContext, useState, useContext, FC, Suspense } from 'react'
-import { POPUP_COMPONENTS, POPUP_TYPE } from './popupRegistration'
+import { POPUP_COMPONENTS, POPUP_TYPE } from './pagePopupRegistration'
 interface ModalProps {
     popupType: string | null
     popupProps: { popupType: string; popupProps: any }[]
@@ -14,11 +14,14 @@ interface IPopupCtx {
     popupHistory: string[]
     popupState: any
     setPopupState: (state: any) => void
+    open: boolean
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const PopupCtx = createContext<IPopupCtx>({} as IPopupCtx)
 
 const PopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [open, setOpen] = useState(false)
     const [store, setStore] = useState<ModalProps>({
         popupType: null,
         popupProps: [],
@@ -31,6 +34,7 @@ const PopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     }
 
     const showPopup = (popupType: POPUP_TYPE, popupProps?: any): void => {
+        setOpen(true)
         const updatedPopupProps = [...store.popupProps, { popupType, popupProps }]
         setStore({
             ...store,
@@ -72,6 +76,7 @@ const PopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
         }
     }
     const hideAllPopups = () => {
+        setOpen(false)
         setStore({ ...store, popupType: null, popupProps: [] })
         setPopupHistory([])
     }
@@ -86,6 +91,8 @@ const PopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
         <PopupCtx.Provider
             value={{
+                open,
+                setOpen,
                 store,
                 showPopup,
                 hidePopup,
@@ -101,6 +108,6 @@ const PopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     )
 }
 
-const usePopupCtx = () => useContext(PopupCtx)
+const usePagePopupCtx = () => useContext(PopupCtx)
 
-export { PopupCtx, PopupProvider, usePopupCtx }
+export { PopupCtx, PopupProvider, usePagePopupCtx }

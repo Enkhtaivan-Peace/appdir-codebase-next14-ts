@@ -1,4 +1,5 @@
 'use client'
+import { DrawerDialogDemo } from '@/common/popup/shadcnPopup/DrawerDialog'
 import { OrderedList } from '@/components/ui/list/list-ui-utils'
 import { DangerText, UnderlineText } from '@/components/ui/typography/typography-utils'
 import React from 'react'
@@ -41,14 +42,7 @@ const PopupPage = () => {
                         </li>
                     </ol>
                 </li>
-                <li>
-                    Үүсгэсэн Popup component дотроо <DangerText>tailwind-styled-components</DangerText> ашиглахгүй байх.
-                    <br />
-                    Учир нь бүх popup - уудыг lazy - ээр дуудаж байгаагаас tailwind-config дээрх зарим нэг spacing гэх
-                    мэт тохиргоонууд танихгүй байгаа гэж таамаглаж байна.
-                    <br />
-                    Тиймээс <DangerText>styled-components</DangerText> санг дуудаж popup - ийн css - ийг бичнэ.
-                </li>
+
                 <li>
                     Popup - ийг дуудаж харуулах:
                     <ol>
@@ -73,6 +67,7 @@ const PopupPage = () => {
                     </ol>
                 </li>
             </OrderedList>
+            <DrawerDialogDemo />
         </div>
     )
 }
