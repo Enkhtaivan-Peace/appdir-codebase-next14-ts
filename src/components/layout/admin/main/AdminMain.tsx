@@ -6,7 +6,6 @@ import React, { CSSProperties, useRef } from 'react'
 import { IMain } from './_interface'
 import tw from 'tailwind-styled-components'
 import useElementPosition from 'a/common/window/useElementPosition'
-import { useAdminGlobalCtx } from 'a/common/global/useAdminGlobalCtx'
 import { useWindowSize } from 'usehooks-ts'
 
 function AdminMain(props: IMain): JSX.Element {
@@ -15,14 +14,12 @@ function AdminMain(props: IMain): JSX.Element {
     useElementPosition(ref, { globalName: 'adminMain', isAdminSide: true })
 
     const windowSize = useWindowSize()
-    const style:CSSProperties = {
-          paddingLeft: windowSize.width < 1024 ? `0px` : `200px`  
+    const style: CSSProperties = {
+        paddingLeft: windowSize.width < 1024 ? `0px` : `200px`,
     }
     return (
         <MainTw ref={ref} style={style}>
-            <div className='p-20'>
-                {children}
-            </div>
+            <div className="p-20">{children}</div>
         </MainTw>
     )
 }

@@ -109,8 +109,8 @@ export const adminMenu: TAdminMenu = {
         href: '/admin/window',
     },
     ADMIN_SCROLL_EFFECTS: {
-        text: 'Scrolling effects',
-        href: '/admin/scrollingEffects',
+        text: 'Scroll animation',
+        href: '/admin/scroll-animation',
     },
     ADMIN_LIST: {
         text: 'List',
