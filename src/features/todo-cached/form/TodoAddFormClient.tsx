@@ -1,6 +1,6 @@
 'use client'
-import { Button } from 'a/components/ui/button'
-import { Flex } from 'a/components/ui/containers/flex/Flex'
+import { Button } from '@/components/ui/button'
+import { Flex } from '@/components/ui/containers/flex/Flex'
 import React, { ChangeEvent, FormEvent, useState, useTransition } from 'react'
 import { TodoService } from '../TodoService'
 import { ITodo, TCreateTodo } from '../_interfaces'

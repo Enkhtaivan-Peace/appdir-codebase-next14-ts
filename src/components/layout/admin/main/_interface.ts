@@ -1,3 +1,3 @@
-// import { JsxChildren } from 'a/common/types/common'
+// import { JsxChildren } from '@/common/types/common'
 
 export interface IMain extends JsxChildren {}

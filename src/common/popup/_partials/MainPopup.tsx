@@ -3,11 +3,11 @@
  */
 import React, { ReactNode, useRef, useCallback } from 'react'
 import Backdrop from './Backdrop'
-import CloseBtn from 'a/components/ui/button/CloseBtn'
+import CloseBtn from '@/components/ui/button/CloseBtn'
 import { usePopupCtx } from '../usePopupCtx'
 import styled from 'styled-components'
 import { MainPopupBody, MainPopupHeader, MainPopupWrapper } from './GlobalMainPopup'
-import useKeyPress from 'a/common/keyboard/key'
+import useKeyPress from '@/common/keyboard/key'
 interface IMainPopup {
     children: ReactNode
     width?: number
@@ -18,10 +18,10 @@ interface IMainPopup {
 function MainPopup({ children, title }: IMainPopup) {
     const backRef = useRef(null)
     const { hidePopup } = usePopupCtx()
-    
+
     useKeyPress({
         callback: () => closePopup(),
-        keyName: 'Escape'
+        keyName: 'Escape',
     })
 
     const closePopup = useCallback(() => {

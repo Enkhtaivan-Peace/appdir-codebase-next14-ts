@@ -1,4 +1,4 @@
-// import { JsxChildren } from 'a/common/types/common'
+// import { JsxChildren } from '@/common/types/common'
 import React from 'react'
 function Grid(props: JsxChildren) {
     return <div className="auto-grid">{props.children}</div>

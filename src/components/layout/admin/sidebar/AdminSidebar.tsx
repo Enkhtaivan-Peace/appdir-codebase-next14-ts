@@ -3,8 +3,8 @@ import React, { useRef } from 'react'
 import SidebarItem from './AdminSidebarItem'
 import tw from 'tailwind-styled-components'
 import { motion } from 'framer-motion'
-import useElementPosition from 'a/common/window/useElementPosition'
-import { adminMenu } from 'a/common/constants'
+import useElementPosition from '@/common/window/useElementPosition'
+import { adminMenu } from '@/common/constants'
 import { useWindowSize } from 'usehooks-ts'
 export interface IMenu {
     column?: boolean

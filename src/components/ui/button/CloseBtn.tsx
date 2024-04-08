@@ -1,7 +1,7 @@
 import React from 'react'
 import tw from 'tailwind-styled-components'
 import { GrFormClose } from 'react-icons/gr'
-// import { TButton } from 'a/common/types/common'
+// import { TButton } from '@/common/types/common'
 
 // children?: React.ReactNode;
 // size?: string | number;

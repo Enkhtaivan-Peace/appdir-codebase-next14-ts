@@ -5,7 +5,7 @@
 import React, { CSSProperties, useRef } from 'react'
 import { IMain } from './_interface'
 import tw from 'tailwind-styled-components'
-import useElementPosition from 'a/common/window/useElementPosition'
+import useElementPosition from '@/common/window/useElementPosition'
 import { useWindowSize } from 'usehooks-ts'
 
 function AdminMain(props: IMain): JSX.Element {

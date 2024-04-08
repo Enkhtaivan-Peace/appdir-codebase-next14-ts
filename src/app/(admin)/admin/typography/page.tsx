@@ -1,15 +1,13 @@
 import React from 'react'
-import { Alert, AlertDescription, AlertTitle } from "a/components/ui/alert"
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 const TypographyPage = () => {
-  return (
-    <div>
-        <Alert>
-            <AlertTitle>Heads up!</AlertTitle>
-            <AlertDescription>
-                You can add components and dependencies to your app using the cli.
-            </AlertDescription>
-        </Alert>
-        <h1>TypographyPage:</h1>
+    return (
+        <div>
+            <Alert>
+                <AlertTitle>Heads up!</AlertTitle>
+                <AlertDescription>You can add components and dependencies to your app using the cli.</AlertDescription>
+            </Alert>
+            <h1>TypographyPage:</h1>
             <h2>H2 Title</h2>
             <h3>H3 Title</h3>
             <h4>H4 Title</h4>
@@ -48,8 +46,8 @@ const TypographyPage = () => {
             </p>
 
             <h2>.heading класс :</h2>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default TypographyPage

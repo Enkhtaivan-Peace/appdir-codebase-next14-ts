@@ -1,4 +1,4 @@
-// import { TFormState } from 'a/components/ui/form/store/formReducer'
+// import { TFormState } from '@/components/ui/form/store/formReducer'
 import { ZodSchema, z } from 'zod'
 
 type TValidate = {

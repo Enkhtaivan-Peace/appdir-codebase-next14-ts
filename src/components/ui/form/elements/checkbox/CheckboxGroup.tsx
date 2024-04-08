@@ -1,7 +1,7 @@
 import React from 'react'
-import useForm from 'a/components/ui/form/store/useForm'
+import useForm from '@/components/ui/form/store/useForm'
 import { TCheckbox } from './Checkbox'
-// import useString from 'a/common/string/useString';
+// import useString from '@/common/string/useString';
 
 type TCheckboxGroup = {
     groupName: string

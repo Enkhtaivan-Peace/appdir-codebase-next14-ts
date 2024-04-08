@@ -1,12 +1,12 @@
-import { TError } from "a/common/fetch/fetchCrud";
+import { TError } from '@/common/fetch/fetchCrud'
 
 export interface IUser {
-    id:number;
-    name:string;
-    email:string;
-    createdAt:string;
-    updatedAt:string;
-    deletionDate?:string
+    id: number
+    name: string
+    email: string
+    createdAt: string
+    updatedAt: string
+    deletionDate?: string
 }
 
 export type TCreateUser = Exclude<IUser, 'id' | 'createdAt'>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { IAnimeProp } from './AnimeList'
 import Image from 'next/image'
-import { MotionDiv } from 'a/components/ui/motion/MotionContainer'
+import { MotionDiv } from '@/components/ui/motion/MotionContainer'
 import Link from 'next/link'
-import { Flex } from 'a/components/ui/containers/flex/Flex'
+import { Flex } from '@/components/ui/containers/flex/Flex'
 import './anime.css'
 interface IAnimeCard extends IAnimeProp {
     idx: number

@@ -1,7 +1,7 @@
-import { fetchApi } from 'a/common/fetch/fetchCrud'
+import { fetchApi } from '@/common/fetch/fetchCrud'
 import { ITodo, TCreateTodo, TDeleteTodo, TEditTodo } from './_interfaces'
-import { generateQuery } from 'a/common/fetch/queryGenerator'
-import { getSessionObject } from 'a/common/auth/_actions'
+import { generateQuery } from '@/common/fetch/queryGenerator'
+import { getSessionObject } from '@/common/auth/_actions'
 import { revalidateTag } from 'next/cache'
 
 export const TodoService = {

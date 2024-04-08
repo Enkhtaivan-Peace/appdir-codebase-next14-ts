@@ -3,8 +3,8 @@
  */
 import React, { useEffect, useState, useCallback } from 'react'
 import tw from 'tailwind-styled-components'
-import { useHeaderCtx } from 'a/components/layout/web/header/useHeaderCtx'
-// import { TButton } from 'a/common/types/common'
+import { useHeaderCtx } from '@/components/layout/web/header/useHeaderCtx'
+// import { TButton } from '@/common/types/common'
 
 function Hamburger(): JSX.Element {
     const [isClicked, setIsClicked] = useState<boolean>(false)

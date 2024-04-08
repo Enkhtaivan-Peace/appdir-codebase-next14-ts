@@ -1,12 +1,12 @@
 'use client'
-import { OrderedList } from 'a/components/ui/list/list-ui-utils'
-import { DangerText, UnderlineText } from 'a/components/ui/typography/typography-utils'
+import { OrderedList } from '@/components/ui/list/list-ui-utils'
+import { DangerText, UnderlineText } from '@/components/ui/typography/typography-utils'
 import React from 'react'
 
 const PopupPage = () => {
-  return (
-    <div>
-        <h2>Popup үүсгэхэд анхаарах зүйлс:</h2>
+    return (
+        <div>
+            <h2>Popup үүсгэхэд анхаарах зүйлс:</h2>
             <OrderedList>
                 <li>
                     Аливаа popup нь <DangerText>Global</DangerText> ба <DangerText>Local</DangerText> гэсэн үндсэн 2
@@ -73,8 +73,8 @@ const PopupPage = () => {
                     </ol>
                 </li>
             </OrderedList>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default PopupPage

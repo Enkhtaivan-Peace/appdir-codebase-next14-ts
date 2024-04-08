@@ -1,10 +1,9 @@
 'use server'
 
-import { TError } from "a/common/fetch/fetchCrud"
-import { IUser } from "./_interfaces"
-import { userService } from "./userService"
-import { getAccessToken } from "a/common/auth/_actions"
-
+import { TError } from '@/common/fetch/fetchCrud'
+import { IUser } from './_interfaces'
+import { userService } from './userService'
+import { getAccessToken } from '@/common/auth/_actions'
 
 export async function getUserList(payload: TListReq) {
     const token = await getAccessToken()

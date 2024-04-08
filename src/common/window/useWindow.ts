@@ -2,7 +2,7 @@
  * @createdBy Phill Anderson 2022/02/27
  */
 import { useEffect, useState } from 'react'
-import { debounce } from 'a/common/delay/timer'
+import { debounce } from '@/common/delay/timer'
 
 interface BrowserWindow {
     innerWidth: number | null

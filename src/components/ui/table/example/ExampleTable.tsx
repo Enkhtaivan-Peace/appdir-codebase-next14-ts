@@ -1,4 +1,4 @@
-import Table from 'a/components/ui/table/Table'
+import Table from '@/components/ui/table/Table'
 import React from 'react'
 import TableHeader from './TableHeader'
 import TableBody from './TableBody'

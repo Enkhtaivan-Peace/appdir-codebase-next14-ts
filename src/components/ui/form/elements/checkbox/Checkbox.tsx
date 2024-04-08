@@ -1,4 +1,4 @@
-// import { TFormElement } from 'a/common/types/common'
+// import { TFormElement } from '@/common/types/common'
 
 import React, { useState } from 'react'
 import { BsCheck } from 'react-icons/bs'

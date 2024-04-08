@@ -2,9 +2,9 @@
 /**
  * @createdBy Phill Anderson 2022/02/27
  */
-import { useAdminGlobalCtx } from 'a/common/global/useAdminGlobalCtx'
+import { useAdminGlobalCtx } from '@/common/global/useAdminGlobalCtx'
 import React, { useEffect, useState, RefObject } from 'react'
-import { debounce } from 'a/common/delay/timer'
+import { debounce } from '@/common/delay/timer'
 import { useSiteGlobalCtx } from '../global/useSiteGlobal'
 interface ClientRect {
     top: number | null

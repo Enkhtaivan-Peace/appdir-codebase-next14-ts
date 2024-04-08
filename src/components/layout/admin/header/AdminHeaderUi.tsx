@@ -3,14 +3,14 @@
  * @createdBy Phill Anderson 2022/11/15
  */
 import React, { useCallback, useRef } from 'react'
-import Hamburger from 'a/components/ui/button/Hamburger'
-import { ThemeSwitcherBtn } from 'a/common/theme/themeSwitcherBtn'
+import Hamburger from '@/components/ui/button/Hamburger'
+import { ThemeSwitcherBtn } from '@/common/theme/themeSwitcherBtn'
 import AdminMobileMenu from '../mobileMenu/AdminMobileMenu'
-import useElementPosition from 'a/common/window/useElementPosition'
-import { useGlobalPopupCtx } from 'a/common/popup/globalPopup/useGlobalPopupCtx'
-import { GLOBAL_POPUP_TYPES } from 'a/common/popup/globalPopup/globalPopupRegistration'
+import useElementPosition from '@/common/window/useElementPosition'
+import { useGlobalPopupCtx } from '@/common/popup/globalPopup/useGlobalPopupCtx'
+import { GLOBAL_POPUP_TYPES } from '@/common/popup/globalPopup/globalPopupRegistration'
 import tw from 'tailwind-styled-components'
-import Logo from 'a/components/ui/button/Logo'
+import Logo from '@/components/ui/button/Logo'
 import { useSession } from 'next-auth/react'
 
 function AdminHeaderUi(): JSX.Element {

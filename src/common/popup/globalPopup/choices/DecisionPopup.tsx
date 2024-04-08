@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGlobalPopupCtx } from '../useGlobalPopupCtx'
-import { Flex } from 'a/components/ui/containers/flex/Flex'
+import { Flex } from '@/components/ui/containers/flex/Flex'
 import GlobalMainPopup from '../../_partials/GlobalMainPopup'
 
 function DecisionPopup() {

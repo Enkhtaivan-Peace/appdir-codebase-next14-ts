@@ -1,4 +1,4 @@
-// import { JsxChildren } from 'a/common/types/common'
+// import { JsxChildren } from '@/common/types/common'
 import React, { createContext, useState, useContext, FC } from 'react'
 
 interface IHeaderCtx {

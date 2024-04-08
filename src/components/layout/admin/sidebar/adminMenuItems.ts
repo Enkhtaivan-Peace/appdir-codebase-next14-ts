@@ -1,5 +1,5 @@
 import { IMenuItem } from './AdminSidebar'
-import { adminMenu } from 'a/common/constants'
+import { adminMenu } from '@/common/constants'
 export const adminMenuItems: IMenuItem[] = [
     {
         text: adminMenu.ADMIN_HOME.text,

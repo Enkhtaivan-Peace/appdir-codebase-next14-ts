@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGlobalPopupCtx } from '../useGlobalPopupCtx'
-import { Flex } from 'a/components/ui/containers/flex/Flex'
+import { Flex } from '@/components/ui/containers/flex/Flex'
 import GlobalMainPopup from '../../_partials/GlobalMainPopup'
 
 function InfoPopup(): JSX.Element {
@@ -8,7 +8,7 @@ function InfoPopup(): JSX.Element {
     return (
         <GlobalMainPopup title="Info popup">
             <p className="text-pink">ongoo awch bnaa</p>
-            <Flex className='flex-col gap-10'>
+            <Flex className="flex-col gap-10">
                 <button onClick={hideGlobalPopup}>hide this popup</button>
                 <button onClick={hideAllGlobalPopups}>hide all popups!!</button>
             </Flex>

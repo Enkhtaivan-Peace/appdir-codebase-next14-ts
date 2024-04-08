@@ -1,6 +1,6 @@
 import { GoChevronDown } from 'react-icons/go'
 import useSelect, { TUseSelect } from '../useSelect'
-// import { TFormElement } from 'a/common/types/common'
+// import { TFormElement } from '@/common/types/common'
 export interface ISelectOption {
     label: string
     value: string

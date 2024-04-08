@@ -3,9 +3,9 @@ import React, { useRef } from 'react'
 import MobileMenuLink from './AdminMobileMenuLink'
 import { useHeaderCtx } from '../header/useHeaderContext'
 import tw from 'tailwind-styled-components'
-import CloseBtn from 'a/components/ui/button/CloseBtn'
+import CloseBtn from '@/components/ui/button/CloseBtn'
 import { adminMenuItems } from '../sidebar/adminMenuItems'
-import { Flex } from 'a/components/ui/containers/flex/Flex'
+import { Flex } from '@/components/ui/containers/flex/Flex'
 
 function AdminMobileMenu(): JSX.Element {
     const { isOpenMobileMenu, setIsOpenMobileMenu } = useHeaderCtx()

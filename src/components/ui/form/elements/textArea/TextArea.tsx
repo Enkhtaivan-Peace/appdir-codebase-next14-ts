@@ -1,4 +1,4 @@
-// import { TFormElement } from 'a/common/types/common'
+// import { TFormElement } from '@/common/types/common'
 import React from 'react'
 interface ITextArea extends TFormElement {
     rows?: number

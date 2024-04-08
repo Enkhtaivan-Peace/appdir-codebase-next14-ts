@@ -1,11 +1,11 @@
-import { AdminGlobalProvider } from 'a/common/global/useAdminGlobalCtx';
-import { GlobalPopupProvider } from 'a/common/popup/globalPopup/useGlobalPopupCtx';
-import AdminFooter from 'a/components/layout/admin/AdminFooter';
-import AdminHeader from 'a/components/layout/admin/header/AdminHeader';
-import AdminMain from 'a/components/layout/admin/main/AdminMain';
-import AdminMainContent from 'a/components/layout/admin/main/AdminMainContent';
-import AdminSidebar from 'a/components/layout/admin/sidebar/AdminSidebar';
-import { Flex } from 'a/components/ui/containers/flex/Flex';
+import { AdminGlobalProvider } from '@/common/global/useAdminGlobalCtx'
+import { GlobalPopupProvider } from '@/common/popup/globalPopup/useGlobalPopupCtx'
+import AdminFooter from '@/components/layout/admin/AdminFooter'
+import AdminHeader from '@/components/layout/admin/header/AdminHeader'
+import AdminMain from '@/components/layout/admin/main/AdminMain'
+import AdminMainContent from '@/components/layout/admin/main/AdminMainContent'
+import AdminSidebar from '@/components/layout/admin/sidebar/AdminSidebar'
+import { Flex } from '@/components/ui/containers/flex/Flex'
 import React from 'react'
 import tw from 'tailwind-styled-components'
 
@@ -16,16 +16,16 @@ export const metadata = {
 
 export default function AdminLayout({ children }: JsxChildren) {
     return (
-      <AdminGlobalProvider>
-        <GlobalPopupProvider>
-            <AdminLayoutTw>
-                <AdminHeader />
-                <AdminMainContent children={children} />
-            </AdminLayoutTw>
-        </GlobalPopupProvider>
-      </AdminGlobalProvider>
-    );
-  }
+        <AdminGlobalProvider>
+            <GlobalPopupProvider>
+                <AdminLayoutTw>
+                    <AdminHeader />
+                    <AdminMainContent children={children} />
+                </AdminLayoutTw>
+            </GlobalPopupProvider>
+        </AdminGlobalProvider>
+    )
+}
 
 const AdminLayoutTw = tw.div`
     flex 

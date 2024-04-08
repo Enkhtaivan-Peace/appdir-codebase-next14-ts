@@ -1,13 +1,13 @@
-import { TError } from "a/common/fetch/fetchCrud";
+import { TError } from '@/common/fetch/fetchCrud'
 
 export interface ITodo {
-    id?: number;
-    name: string;
-    photo: string;
-    isCompleted: boolean;
-    description?:string;
-    createdAt?: string;
-    updatedAt?:string;
+    id?: number
+    name: string
+    photo: string
+    isCompleted: boolean
+    description?: string
+    createdAt?: string
+    updatedAt?: string
 }
 
 export type TCreateTodo = Exclude<ITodo, 'id' | 'createdAt'>

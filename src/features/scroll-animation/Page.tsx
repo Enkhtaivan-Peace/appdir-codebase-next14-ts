@@ -1,5 +1,5 @@
 'use client'
-import { MotionDiv } from 'a/components/ui/motion/MotionContainer'
+import { MotionDiv } from '@/components/ui/motion/MotionContainer'
 import { useMotionValue, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
 import React, { useRef } from 'react'
 
