@@ -18,9 +18,9 @@ interface IPopupCtx {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const PopupCtx = createContext<IPopupCtx>({} as IPopupCtx)
+const PagePopupCtx = createContext<IPopupCtx>({} as IPopupCtx)
 
-const PopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
+const PagePopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     const [open, setOpen] = useState(false)
     const [store, setStore] = useState<ModalProps>({
         popupType: null,
@@ -89,7 +89,7 @@ const PopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
         return null
     }
     return (
-        <PopupCtx.Provider
+        <PagePopupCtx.Provider
             value={{
                 open,
                 setOpen,
@@ -104,10 +104,10 @@ const PopupProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
         >
             <Suspense fallback={<div>Loading ...</div>}>{renderComponent()}</Suspense>
             {children}
-        </PopupCtx.Provider>
+        </PagePopupCtx.Provider>
     )
 }
 
-const usePagePopupCtx = () => useContext(PopupCtx)
+const usePagePopupCtx = () => useContext(PagePopupCtx)
 
-export { PopupCtx, PopupProvider, usePagePopupCtx }
+export { PagePopupCtx, PagePopupProvider, usePagePopupCtx }

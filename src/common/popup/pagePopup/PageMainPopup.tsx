@@ -12,7 +12,7 @@ interface IMainPopup {
     title: string
 }
 
-function MainPopup({ children, title }: IMainPopup) {
+function PageMainPopup({ children, title }: IMainPopup) {
     const { open, setOpen } = usePagePopupCtx()
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -26,4 +26,4 @@ function MainPopup({ children, title }: IMainPopup) {
     )
 }
 
-export default MainPopup
+export default PageMainPopup

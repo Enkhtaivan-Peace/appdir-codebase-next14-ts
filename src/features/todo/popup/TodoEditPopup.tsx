@@ -1,4 +1,4 @@
-import MainPopup from '@/common/popup/pagePopup/MainPopup'
+import MainPopup from '@/common/popup/pagePopup/PageMainPopup'
 import { usePopupCtx } from '@/common/popup/pagePopup/usePagePopupCtx'
 import { Button } from '@/components/ui/button'
 import React from 'react'
