@@ -32,6 +32,10 @@ export const adminMenu: TAdminMenu = {
         text: 'Drawer',
         href: '/admin/drawer',
     },
+    ADMIN_SHEET: {
+        text: 'Sheet',
+        href: '/admin/sheet',
+    },
     ADMIN_ACCORDION: {
         text: 'Accordion',
         href: '/admin/accordion',
