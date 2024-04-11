@@ -1,3 +1,4 @@
+'use client'
 import React, { FormEvent, useState } from 'react'
 import { useSocketCtx } from '../useSocketCtx'
 import useExampleSocket from './useExampleSocket'
@@ -13,8 +14,12 @@ function ExampleSocketForm() {
     function onSubmit(event: FormEvent) {
         event.preventDefault()
         setIsLoading(true)
-
-        socket.timeout(5000).emit('user:create', value, (response: any) => {
+        const payload = {
+            email: 'socket@gmail.com',
+            username: 'user_1',
+            message: value,
+        }
+        socket.timeout(5000).emit('user:create', payload, (response: any) => {
             console.log(response)
             setIsLoading(false)
         })

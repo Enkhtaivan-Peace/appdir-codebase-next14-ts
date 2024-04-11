@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useState, useContext, FC, useEffect } from 'react'
 import { socket, Socket } from './socket'
 
