@@ -128,6 +128,10 @@ export const adminMenu: TAdminMenu = {
         text: 'TrigonoMetry',
         href: '/admin/trigonometry',
     },
+    ADMIN_SLIDE: {
+        text: 'Slide',
+        href: '/admin/slide',
+    },
 }
 
 export let menuLinks: TMenuLink = {}
