@@ -1,13 +1,13 @@
 'use client'
 import React from 'react'
-import { HeaderProvider } from './useHeaderContext'
+import { AdminHeaderProvider } from './useAdminHeaderCtx'
 import AdminHeaderUi from './AdminHeaderUi'
 
 function AdminHeader() {
     return (
-        <HeaderProvider>
+        <AdminHeaderProvider>
             <AdminHeaderUi />
-        </HeaderProvider>
+        </AdminHeaderProvider>
     )
 }
 

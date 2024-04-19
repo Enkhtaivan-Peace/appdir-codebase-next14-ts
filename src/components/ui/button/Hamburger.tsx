@@ -1,28 +1,35 @@
+'use client'
 /**
  * @createdBy Phill Anderson 2022/11/15
  */
 import React, { useEffect, useState, useCallback } from 'react'
 import tw from 'tailwind-styled-components'
-import { useHeaderCtx } from '@/components/layout/web/header/useHeaderCtx'
-// import { TButton } from '@/common/types/common'
+interface IHamburger {
+    toggle: () => void
+    isOpen: boolean
+}
 
-function Hamburger(): JSX.Element {
+function Hamburger({ toggle, isOpen }: IHamburger): JSX.Element {
     const [isClicked, setIsClicked] = useState<boolean>(false)
-    const { isOpenMobileMenu, setIsOpenMobileMenu } = useHeaderCtx()
 
     const handleClick = useCallback(() => {
         setIsClicked((prev) => !prev)
-        setIsOpenMobileMenu((prev) => !prev)
+        toggle()
     }, [])
 
     useEffect(() => {
-        if (!isOpenMobileMenu) {
+        if (!isOpen) {
             setIsClicked(false)
         }
-    }, [isOpenMobileMenu])
+    }, [isOpen])
 
     return (
-        <HamburgerTw onClick={handleClick} className={isClicked ? 'open-hamburger' : ''}>
+        <HamburgerTw
+            aria-expanded={isOpen}
+            aria-controls="primary-hamburger-button"
+            onClick={handleClick}
+            className={isClicked ? 'open-hamburger' : ''}
+        >
             <HamburgerPieceTw />
             <HamburgerPieceTw />
             <HamburgerPieceTw />

@@ -12,11 +12,13 @@ import { GLOBAL_POPUP_TYPES } from '@/common/popup/globalPopup/globalPopupRegist
 import tw from 'tailwind-styled-components'
 import Logo from '@/components/ui/button/Logo'
 import { useSession } from 'next-auth/react'
+import { useAdminHeaderCtx } from './useAdminHeaderCtx'
 
 function AdminHeaderUi(): JSX.Element {
     const ref = useRef(null)
     useElementPosition(ref, { globalName: 'adminHeader', isAdminSide: true })
     const { showGlobalPopup } = useGlobalPopupCtx()
+    const { isOpenMobileMenu, toggleMobileMenu } = useAdminHeaderCtx()
     const session = useSession()
     console.log('session', session)
 
@@ -29,7 +31,7 @@ function AdminHeaderUi(): JSX.Element {
             <Logo />
             <button onClick={handleShowPopup}>show popup</button>
             <ThemeSwitcherBtn />
-            <Hamburger />
+            <Hamburger toggle={toggleMobileMenu} isOpen={isOpenMobileMenu} />
             <AdminMobileMenu />
         </HeaderSc>
     )

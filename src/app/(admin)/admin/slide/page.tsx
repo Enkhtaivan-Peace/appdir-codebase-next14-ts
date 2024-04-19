@@ -13,8 +13,8 @@ const Slidepage = () => {
     const [isLeftOpen, setIsLeftOpen] = useState<boolean>(false)
     const [isRightOpen, setIsRightOpen] = useState<boolean>(false)
 
-    const { isShow: isShowSlideUp, handleSlide: handleSlideUp, ref: slideUpRef } = useSlide()
-    const { isShow: isShowSlideDown, handleSlide: handleSlideDown, ref: slideDownRef } = useSlide()
+    const { isShow: isShowSlideUp, toggleSlide: handleSlideUp, ref: slideUpRef } = useSlide()
+    const { isShow: isShowSlideDown, toggleSlide: handleSlideDown, ref: slideDownRef } = useSlide()
 
     return (
         <Grid className=" place-content-center h-screen">

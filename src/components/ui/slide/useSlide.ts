@@ -4,7 +4,7 @@ function useSlide() {
     const [isShow, setIsShow] = useState<boolean>(false)
     const ref = useRef<HTMLDivElement>(null)
 
-    const handleSlide = useCallback(() => {
+    const toggleSlide = useCallback(() => {
         setIsShow((prev) => !prev)
     }, [])
 
@@ -15,7 +15,7 @@ function useSlide() {
     useOnClickOutside(ref, closeSlide)
     return {
         isShow,
-        handleSlide,
+        toggleSlide,
         closeSlide,
         ref,
     }

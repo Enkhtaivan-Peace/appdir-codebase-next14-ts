@@ -5,21 +5,20 @@ import { usePathname } from 'next/navigation'
 import tw from 'tailwind-styled-components'
 interface ISidebarItem extends TMENU {}
 
-function SidebarItem(props: ISidebarItem) {
+function AdminSidebarItem(props: ISidebarItem) {
     const { text, href } = props
     const pathName = usePathname()
     const isActive = pathName === href
 
     return (
-        <SidebarItemTw href={href} className={`menuItem ${isActive ? 'text-emerald-500' : ''}`}>
+        <SidebarItemTw aria-current={isActive} href={href}>
             {text}
         </SidebarItemTw>
     )
 }
 
 const SidebarItemTw = tw(Link)`
-    font-railwayBold
-    transition
+    admin-sidebar-item
 `
 
-export default SidebarItem
+export default AdminSidebarItem

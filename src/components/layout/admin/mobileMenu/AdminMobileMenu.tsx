@@ -1,14 +1,14 @@
 'use client'
 import React, { useRef } from 'react'
 import MobileMenuLink from './AdminMobileMenuLink'
-import { useHeaderCtx } from '../header/useHeaderContext'
+import { useAdminHeaderCtx } from '../header/useAdminHeaderCtx'
 import tw from 'tailwind-styled-components'
 import CloseBtn from '@/components/ui/button/CloseBtn'
 import { adminMenuItems } from '../sidebar/adminMenuItems'
 import { Flex } from '@/components/ui/containers/flex/Flex'
 
 function AdminMobileMenu(): JSX.Element {
-    const { isOpenMobileMenu, setIsOpenMobileMenu } = useHeaderCtx()
+    const { isOpenMobileMenu, setIsOpenMobileMenu } = useAdminHeaderCtx()
     const ref = useRef(null)
 
     return (

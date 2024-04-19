@@ -1,21 +1,26 @@
-// import { JsxChildren } from '@/common/types/common'
-import React, { createContext, useState, useContext, FC } from 'react'
+'use client'
+import React, { createContext, useState, useContext, FC, useCallback } from 'react'
 
 interface IHeaderCtx {
     isOpenMobileMenu: boolean
     setIsOpenMobileMenu: React.Dispatch<React.SetStateAction<boolean>>
+    toggleMobileMenu: () => void
 }
 
 const HeaderContext = createContext<IHeaderCtx>({} as IHeaderCtx)
 
-const HeaderProvider: FC<JsxChildren> = ({ children }) => {
+const AdminHeaderProvider: FC<JsxChildren> = ({ children }) => {
     const [isOpenMobileMenu, setIsOpenMobileMenu] = useState<boolean>(false)
 
+    const toggleMobileMenu = useCallback(() => {
+        setIsOpenMobileMenu((prev) => !prev)
+    }, [])
     return (
         <HeaderContext.Provider
             value={{
                 isOpenMobileMenu,
                 setIsOpenMobileMenu,
+                toggleMobileMenu,
             }}
         >
             {children}
@@ -23,6 +28,6 @@ const HeaderProvider: FC<JsxChildren> = ({ children }) => {
     )
 }
 
-const useHeaderCtx = () => useContext(HeaderContext)
+const useAdminHeaderCtx = () => useContext(HeaderContext)
 
-export { HeaderContext, HeaderProvider, useHeaderCtx }
+export { HeaderContext, AdminHeaderProvider, useAdminHeaderCtx }

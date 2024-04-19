@@ -2,13 +2,13 @@
 import React, { useCallback } from 'react'
 import { IMobileMenuLink } from './_interface'
 import { useRouter } from 'next/navigation'
-import { useHeaderCtx } from '../header/useHeaderContext'
+import { useAdminHeaderCtx } from '../header/useAdminHeaderCtx'
 import tw from 'tailwind-styled-components'
 
 const MobileMenuLink = (props: IMobileMenuLink) => {
     const { text, href } = props
     const { push } = useRouter()
-    const { setIsOpenMobileMenu } = useHeaderCtx()
+    const { setIsOpenMobileMenu } = useAdminHeaderCtx()
 
     const handleClick = useCallback(() => {
         push(href)
