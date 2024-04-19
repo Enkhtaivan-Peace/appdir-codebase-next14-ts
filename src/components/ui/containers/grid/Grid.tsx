@@ -1,7 +1,9 @@
 // import { JsxChildren } from '@/common/types/common'
 import React from 'react'
-function Grid(props: JsxChildren) {
+import tw from 'tailwind-styled-components'
+
+export function AutoGrid(props: JsxChildren) {
     return <div className="auto-grid">{props.children}</div>
 }
 
-export default Grid
+export const Grid = tw.div`grid`

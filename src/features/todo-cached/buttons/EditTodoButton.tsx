@@ -1,6 +1,6 @@
 'use client'
 import { POPUP_TYPES } from '@/common/popup/pagePopup/pagePopupRegistration'
-import { usePopupCtx } from '@/common/popup/pagePopup/usePagePopupCtx'
+import { usePagePopupCtx } from '@/common/popup/pagePopup/usePagePopupCtx'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { MdOutlineModeEditOutline } from 'react-icons/md'
@@ -11,7 +11,7 @@ export interface IEditTodoBtn {
 function EditTodoButton(props: IEditTodoBtn) {
     const { todo } = props
 
-    const { showPopup, setPopupState } = usePopupCtx()
+    const { showPopup, setPopupState } = usePagePopupCtx()
 
     // server actions - аар edit хийх үед амжилттай edit function ажилласны дараа
     // popup - ийг хаах боломжгүй. учир нь popup нь client талд ажиллаж байгаа.

@@ -1,4 +1,4 @@
-import { PopupProvider } from '@/common/popup/pagePopup/usePagePopupCtx'
+import { PagePopupProvider } from '@/common/popup/pagePopup/usePagePopupCtx'
 import { Wrapper } from '@/components/ui/containers/Wrapper'
 import { Flex } from '@/components/ui/containers/flex/Flex'
 import CachedTodoList from '@/features/todo-cached/CachedTodoList'
@@ -7,13 +7,13 @@ import React from 'react'
 
 const ClientCachePage: NextPage = () => {
     return (
-        <PopupProvider>
+        <PagePopupProvider>
             <Wrapper>
                 <Flex className="w-full gap-20">
                     <CachedTodoList />
                 </Flex>
             </Wrapper>
-        </PopupProvider>
+        </PagePopupProvider>
     )
 }
 

@@ -1,4 +1,4 @@
-import { PopupProvider } from '@/common/popup/pagePopup/usePagePopupCtx'
+import { PagePopupProvider } from '@/common/popup/pagePopup/usePagePopupCtx'
 import { Wrapper } from '@/components/ui/containers/Wrapper'
 import TodoAddFormClient from '@/features/todo/form/TodoAddFormClient'
 import TodoAddFormServer from '@/features/todo/form/TodoAddFormServer'
@@ -9,7 +9,7 @@ import React from 'react'
 const TodoPage: NextPage = (props: TPageProps) => {
     const { searchParams } = props
     return (
-        <PopupProvider>
+        <PagePopupProvider>
             <Wrapper>
                 <h2>Зөвхөн server actions ашиглан todo list бүхий crud хийж чадах уу?</h2>
                 <TodoAddFormServer />
@@ -17,7 +17,7 @@ const TodoPage: NextPage = (props: TPageProps) => {
                 <hr />
                 <TodoList searchParams={searchParams} />
             </Wrapper>
-        </PopupProvider>
+        </PagePopupProvider>
     )
 }
 

@@ -1,11 +1,11 @@
 import MainPopup from '@/common/popup/pagePopup/PageMainPopup'
-import { usePopupCtx } from '@/common/popup/pagePopup/usePagePopupCtx'
+import { usePagePopupCtx } from '@/common/popup/pagePopup/usePagePopupCtx'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import TodoEditForm from '../form/TodoEditForm'
 
 function TodoEditPopup() {
-    const { popupState } = usePopupCtx()
+    const { popupState } = usePagePopupCtx()
     console.log(popupState)
     return (
         <MainPopup title="Edit todo">
