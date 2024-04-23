@@ -6,6 +6,7 @@ import { getServerSession } from 'next-auth'
 import { ThemeProvider } from '@/common/theme/themeProvider'
 import { cn } from '@/common/utils'
 import ReactQueryProvider from '@/common/tanstack/ReactQuery'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +25,10 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
             <body className={cn(' antialiased', inter.className)}>
                 <ThemeProvider>
                     <SessionProvider session={session}>
-                        <ReactQueryProvider>{children}</ReactQueryProvider>
+                        <ReactQueryProvider>
+                            {children}
+                            <Toaster />
+                        </ReactQueryProvider>
                     </SessionProvider>
                 </ThemeProvider>
             </body>

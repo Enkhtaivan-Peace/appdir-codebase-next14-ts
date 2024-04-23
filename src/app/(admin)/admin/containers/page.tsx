@@ -12,7 +12,7 @@ const ContainersPage = () => {
             </Wrapper>
 
             <h3 className="mt-20 text-red-300">Grid Component</h3>
-            <Grid className="gap-10 bg-slate-400">
+            <Grid className="gap-10 grid-cols-[repeat(auto-fit,minmax(350px,1fr))]">
                 <ExampleList />
             </Grid>
             <h3 className="mt-20 text-red-300">Auto Grid Component</h3>

@@ -72,9 +72,13 @@ export const adminMenu: TAdminMenu = {
         text: 'Cards',
         href: '/admin/cards',
     },
+    ADMIN_CAROUSEL: {
+        text: 'Carousel',
+        href: '/admin/carousel',
+    },
     ADMIN_SLIDERS: {
         text: 'swiper',
-        href: '/admin/sliders',
+        href: '/admin/swiper',
     },
     ADMIN_SEARCH: {
         text: 'Table(Search)',
@@ -83,6 +87,10 @@ export const adminMenu: TAdminMenu = {
     ADMIN_TAB: {
         text: 'Tabs',
         href: '/admin/tab',
+    },
+    ADMIN_TOAST: {
+        text: 'Toast',
+        href: '/admin/toast',
     },
     ADMIN_LOADER: {
         text: 'loader',
@@ -94,7 +102,7 @@ export const adminMenu: TAdminMenu = {
     },
     ADMIN_SKELETON_LOADERS: {
         text: 'SkeletonLoader',
-        href: '/admin/skeletonLoader',
+        href: '/admin/skeleton',
     },
     ADMIN_OPTIMIZATION: {
         text: 'Optimization',
