@@ -16,6 +16,10 @@ export const adminMenu: TAdminMenu = {
         text: 'Admin Home',
         href: '/admin',
     },
+    ADMIN_CONTAINERS: {
+        text: 'Containers',
+        href: '/admin/containers',
+    },
     ADMIN_TYPOGPRAY: {
         text: 'Typography',
         href: '/admin/typography',
@@ -43,10 +47,6 @@ export const adminMenu: TAdminMenu = {
     ADMIN_BUTTON: {
         text: 'button',
         href: '/admin/button',
-    },
-    ADMIN_GRID: {
-        text: 'grid',
-        href: '/admin/grid',
     },
     ADMIN_BOX: {
         text: 'box',
@@ -77,16 +77,12 @@ export const adminMenu: TAdminMenu = {
         href: '/admin/sliders',
     },
     ADMIN_SEARCH: {
-        text: 'Search',
+        text: 'Table(Search)',
         href: '/admin/search',
     },
     ADMIN_TAB: {
         text: 'Tabs',
         href: '/admin/tab',
-    },
-    ADMIN_TABLE: {
-        text: 'Table',
-        href: '/admin/table',
     },
     ADMIN_LOADER: {
         text: 'loader',

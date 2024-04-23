@@ -1,5 +1,5 @@
 .wrapper {
-    @apply container max-w-7xl mx-auto ;
+    @apply container max-w-7xl mx-auto;
 }
 .auto-grid {
     @apply grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] w-full h-fit gap-10;
@@ -39,7 +39,7 @@
 .reel-container {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 45%;
+    grid-auto-columns: 20%;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-padding: 1rem;

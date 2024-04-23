@@ -18,10 +18,6 @@ export const adminMenuItems: IMenuItem[] = [
         href: adminMenu.ADMIN_BUTTON.href,
     },
     {
-        text: adminMenu.ADMIN_GRID.text,
-        href: adminMenu.ADMIN_GRID.href,
-    },
-    {
         text: adminMenu.ADMIN_IMAGE.text,
         href: adminMenu.ADMIN_IMAGE.href,
     },
