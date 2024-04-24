@@ -6,7 +6,7 @@ import { useTabCtx } from './useTabCtx'
 // tab - тай холбоотой re-usefull кодуудыг бичиж өгнө
 function useTab() {
     const { setActiveTabId, activeTabId } = useTabCtx()
-    const tabLinksRef = useRef<HTMLLIElement[]>([])
+    const tabLinksRef = useRef<HTMLLIElement[] | HTMLButtonElement[]>([])
 
     const handleKeyDown = (e: KeyboardEvent, tabHeaderItems: TTabLinkItem[]) => {
         const currentLinkRef = tabLinksRef.current[activeTabId]

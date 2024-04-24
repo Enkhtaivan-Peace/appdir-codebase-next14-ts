@@ -6,9 +6,12 @@ import ExampleShadForm from './ExampleShadForm'
 
 const FormPage: NextPage = async () => {
     // const todos = await getTodoList({})
-    return <div>{/* <TodoInvoiceForm /> */}
-        <ExampleShadForm />
-    </div>
+    return (
+        <div>
+            {/* <TodoInvoiceForm /> */}
+            <ExampleShadForm />
+        </div>
+    )
 }
 
 export default FormPage

@@ -52,7 +52,7 @@ export async function deleteTodo(id: number) {
 
 export async function getTodoList(payload: TListReq) {
     const todoListRes: TRes<ITodo[]> | TError<ITodo> = await TodoService.fetchTodos(payload)
-
+    console.log('todoListRes', todoListRes)
     return todoListRes
 }
 

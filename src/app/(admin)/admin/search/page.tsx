@@ -16,6 +16,7 @@ const SearchPage: NextPage = async (props: TPageProps) => {
     const page = Number(searchParams?.page) || 1
     const limit = Number(searchParams?.limit) || 10
     const todos = await getTodoList({ search, page, limit })
+    console.log('todos', todos)
     const pagination = todos.paginate!
 
     return (
