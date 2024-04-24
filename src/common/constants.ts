@@ -96,6 +96,10 @@ export const adminMenu: TAdminMenu = {
         text: 'loader',
         href: '/admin/loader',
     },
+    ADMIN_POPOVER: {
+        text: 'popover',
+        href: '/admin/popover',
+    },
     ADMIN_MAP: {
         text: 'Map',
         href: '/admin/map',

@@ -9,6 +9,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import Link from 'next/link'
+import { Combobox } from '@/components/ui/combobox'
 
 function ExampleShadForm() {
     const form = useForm<z.infer<typeof formSchema>>({
@@ -51,6 +52,21 @@ function ExampleShadForm() {
                                 <FormLabel>password</FormLabel>
                                 <FormControl>
                                     <Input type="password" placeholder="your password" {...field} />
+                                </FormControl>
+                                <FormDescription>This is password.</FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>password</FormLabel>
+                                <FormControl>
+                                    <Input type="password" placeholder="your password" {...field} />
+                                    {/* <Combobox /> */}
                                 </FormControl>
                                 <FormDescription>This is password.</FormDescription>
                                 <FormMessage />
