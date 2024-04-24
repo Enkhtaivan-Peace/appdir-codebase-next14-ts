@@ -14,4 +14,7 @@ export const formSchema = z.object({
         .refine((value) => !/\s/.test(value), { message: 'Password must not contain spaces' })
         .refine((value) => !/password/i.test(value), { message: 'Password cannot contain the word "password"' }),
     isChecked: z.boolean(),
+    comboItem: z.string({
+        required_error: 'заавал сонгоно уу',
+    }),
 })

@@ -9,9 +9,34 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import Link from 'next/link'
-import { Combobox } from '@/components/ui/combobox'
+import { ComboBoxWithoutForm, Combobox } from '@/components/ui/combobox'
+
+const frameworks = [
+    {
+        value: 'next.js',
+        label: 'Next.js',
+    },
+    {
+        value: 'sveltekit',
+        label: 'SvelteKit',
+    },
+    {
+        value: 'nuxt.js',
+        label: 'Nuxt.js',
+    },
+    {
+        value: 'remix',
+        label: 'Remix',
+    },
+    {
+        value: 'astro',
+        label: 'Astro',
+    },
+]
 
 function ExampleShadForm() {
+    const [comboVal, setComboVal] = React.useState('')
+    console.log('comboVal', comboVal)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -29,7 +54,7 @@ function ExampleShadForm() {
     return (
         <div>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-20">
                     <FormField
                         control={form.control}
                         name="username"
@@ -58,21 +83,27 @@ function ExampleShadForm() {
                             </FormItem>
                         )}
                     />
+
                     <FormField
                         control={form.control}
-                        name="password"
+                        name="comboItem"
                         render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>password</FormLabel>
-                                <FormControl>
-                                    <Input type="password" placeholder="your password" {...field} />
-                                    {/* <Combobox /> */}
-                                </FormControl>
-                                <FormDescription>This is password.</FormDescription>
+                            <FormItem className="flex flex-col">
+                                <FormLabel>Language</FormLabel>
+                                <Combobox
+                                    form={form}
+                                    field={field}
+                                    items={frameworks}
+                                    placeholder={'жишээг сонгоно уу'}
+                                />
+                                <FormDescription>Combobox талбарын тайлбар</FormDescription>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
+
+                    <h3>Combobox without form :</h3>
+                    <ComboBoxWithoutForm items={frameworks} comboVal={comboVal} setComboVal={setComboVal} />
                     <FormField
                         control={form.control}
                         name="isChecked"
