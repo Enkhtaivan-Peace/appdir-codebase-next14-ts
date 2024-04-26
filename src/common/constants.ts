@@ -80,6 +80,10 @@ export const adminMenu: TAdminMenu = {
         text: 'swiper',
         href: '/admin/swiper',
     },
+    ADMIN_SLIDE: {
+        text: 'Slide',
+        href: '/admin/slide',
+    },
     ADMIN_SEARCH: {
         text: 'Table(Search)',
         href: '/admin/search',
@@ -136,9 +140,9 @@ export const adminMenu: TAdminMenu = {
         text: 'TrigonoMetry',
         href: '/admin/trigonometry',
     },
-    ADMIN_SLIDE: {
-        text: 'Slide',
-        href: '/admin/slide',
+    ADMIN_CSS_DYNAMIC_VARS: {
+        text: 'CSS dynamic variables',
+        href: '/admin/css-dynamic-variables',
     },
 }
 

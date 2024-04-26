@@ -1,9 +1,9 @@
 'use client'
-import { MotionDiv } from '@/components/ui/motion/MotionContainer'
 import { useMotionValue, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
 import React, { useRef } from 'react'
+import { MotionDiv } from '@/components/ui/motion/MotionContainer'
 
-function ScrollAnimation() {
+function Scroller() {
     const ref = useRef(null)
 
     const { scrollYProgress } = useScroll({
@@ -24,18 +24,16 @@ function ScrollAnimation() {
     )
     console.log('backgroundColor', backgroundColor)
     return (
-        <MotionDiv className="py-[100vh]">
-            <MotionDiv
-                ref={ref}
-                className="flex text-center items-center mx-auto h-[80px] w-[80px] bg-indigo-500"
-                drag="x"
-                dragConstraints={{ left: -200, right: 200 }}
-                style={{ x, rotate, backgroundColor, cursor: 'grab' }}
-            >
-                <p className=" text-10  leading-16">өнгөө яагаад авахгүй байгаа вэ</p>
-            </MotionDiv>
+        <MotionDiv
+            ref={ref}
+            className="flex text-center items-center mx-auto h-[80px] w-[80px] bg-indigo-500"
+            drag="x"
+            dragConstraints={{ left: -200, right: 200 }}
+            style={{ x, rotate, backgroundColor, cursor: 'grab' }}
+        >
+            <p className=" text-10  leading-16">өнгөө яагаад авахгүй байгаа вэ</p>
         </MotionDiv>
     )
 }
 
-export default ScrollAnimation
+export default Scroller

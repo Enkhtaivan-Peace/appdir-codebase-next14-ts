@@ -1,5 +1,5 @@
 'use client'
-import ScrollAnimation from '@/features/scroll-animation/Page'
+import ScrollAnimation from '@/features/scroll-animation/ScrollAnimationPage'
 import { AnimatePresence } from 'framer-motion'
 import { NextPage } from 'next'
 import React from 'react'

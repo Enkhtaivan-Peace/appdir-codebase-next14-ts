@@ -8,6 +8,7 @@
     }
     body {
         @apply font-notoRegular bg-background text-foreground antialiased;
+        text-rendering: optimizeLegibility;
     }
     h1,
     h2,

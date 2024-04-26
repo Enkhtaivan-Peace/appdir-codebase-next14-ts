@@ -4,10 +4,11 @@
 import React from 'react'
 import tw from 'tailwind-styled-components'
 import { IButton } from './_interface'
+import { Button } from '../button'
 
-export function Button(props: IButton) {
+export function StateButton(props: IButton) {
     const { onClick, children, isLoading } = props
-    return <button onClick={onClick}>{isLoading ? 'уншиж байна ...' : children}</button>
+    return <Button onClick={onClick}>{isLoading ? 'уншиж байна ...' : children}</Button>
 }
 
 export const BlueBtnTw = tw.button`

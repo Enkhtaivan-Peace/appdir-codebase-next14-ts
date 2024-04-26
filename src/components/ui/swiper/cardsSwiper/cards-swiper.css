@@ -3,7 +3,7 @@
     height: 320px;
   }
   
-  .cards-swiper .swiper-slide {
+.cards-swiper .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
