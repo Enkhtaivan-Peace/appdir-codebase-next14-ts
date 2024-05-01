@@ -1,5 +1,7 @@
 .dynamic-vars-example {
-    color: var(--my-color, black);
     background-color: lightgray;
     padding: 20px;
+}
+.dynamic-vars-example p {
+    color: var(--my-color, black);
 }

@@ -42,7 +42,7 @@
 
 
     /** dynamic vars context: **/
-    --my-color: 'chocolate';
+    --my-color: hsl(270deg 75% 60%);
 }
 
 

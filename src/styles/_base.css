@@ -77,4 +77,7 @@
         @apply max-w-full h-auto align-middle italic bg-no-repeat bg-cover;
         shape-margin: 0.75rem;
     }
+    code {
+        @apply text-red-300;
+    }
 }
