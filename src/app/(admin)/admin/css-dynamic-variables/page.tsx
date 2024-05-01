@@ -6,8 +6,8 @@ const CssDynamicVariablesPage = () => {
     const [color, setColor] = useState('#ff0000')
 
     const handleColorChange = () => {
-        setColor('#00ff00')
-    }
+    setColor('#00ff00')
+}
 
     return (
         <div>

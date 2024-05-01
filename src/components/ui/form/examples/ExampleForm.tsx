@@ -8,7 +8,7 @@ import TextArea from '@/components/ui/form/elements/textArea/TextArea'
 import Checkbox from '@/components/ui/form/elements/checkbox/Checkbox'
 import Radio, { IRadioItem } from '@/components/ui/form/elements/radio/Radio'
 import useForm from '../store/useForm'
-import { Button } from '../../button/Button'
+import { StateButton } from '@/components/ui/button/Button'
 import CheckboxGroup from '../elements/checkbox/CheckboxGroup'
 import useCheckbox, { useCheckboxGroup } from '../elements/checkbox/useCheckbox'
 import { TFormFileValue, TFormValue } from '../store/formReducer'
@@ -220,7 +220,7 @@ function ExampleForm() {
                     <InputFileUi name="fileInput" onChange={onChangeFile} />
                     <ImageViewer file={formState?.fileInput?.value! || (null as any)} width={250} />
                 </FormRow>
-                <Button onClick={handleSubmit}>Click me!</Button>
+                <StateButton onClick={handleSubmit}>Click me!</StateButton>
             </form>
         </>
     )
